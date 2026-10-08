@@ -1,6 +1,3 @@
-plugins {
-}
-
 tasks.named('processResources', ProcessResources).configure {
     // 1. Fetch properties from the helper class
     var expandProps = ResourceExpansion.getProperties(project)

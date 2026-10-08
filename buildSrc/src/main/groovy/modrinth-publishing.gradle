@@ -16,7 +16,7 @@ if (localPropsFile.exists()) {
 
 def token = localProps.getProperty('MODRINTH_TOKEN')
 def project_id = localProps.getProperty("MODRINTH_ID")
-def mod_version = rootProps.getProperty("version")
+def mod_version = rootProps.getProperty("mod_version")
 def game_version = rootProps.getProperty("minecraft_version")
 def release_mode = rootProps.getProperty("mod_release_type")
 def mod_name = rootProps.getProperty("mod_name")

@@ -36,9 +36,10 @@ afterEvaluate {
         publications {
             register('mavenJava', MavenPublication) {
                 artifactId = "${project.findProperty('mod_id')}-${project.name.toLowerCase()}"
+                groupId = "${mod_group}"
+                version = "${mod_version}"
 
                 from components.java
-
                 tasks.matching { it.name in ['sourcesJar', 'sourceJar'] }.configureEach { sourceTask ->
                     artifact(sourceTask)
                 }
@@ -47,7 +48,6 @@ afterEvaluate {
 
         repositories {
 			repositories.mavenLocal()
-            			
             maven {
                 name = 'repsy'
                 url = uri(repsyUrl)

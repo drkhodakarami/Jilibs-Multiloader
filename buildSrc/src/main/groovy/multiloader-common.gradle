@@ -5,5 +5,5 @@ plugins {
     id '_repositories'
     id 'jars'
     id 'process-resources'
-    //id 'general-publishing'
+    id 'general-publishing'
 }

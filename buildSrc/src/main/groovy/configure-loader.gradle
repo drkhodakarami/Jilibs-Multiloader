@@ -1,6 +1,3 @@
-plugins {
-}
-
 configurations {
     commonJava{
         canBeResolved = true

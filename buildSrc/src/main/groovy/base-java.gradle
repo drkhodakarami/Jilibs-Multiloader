@@ -1,6 +1,3 @@
-plugins {
-}
-
 base {
     archivesName = "${mod_id}-${project.name}"
 }

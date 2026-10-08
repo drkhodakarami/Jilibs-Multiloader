@@ -48,13 +48,15 @@ class ResourceExpansion {
             'architectury_fabric_version',
             'architectury_neoforge_version',
             'terrablender_fabric_version',
-            'terrablender_neoforge_version'
+            'terrablender_neoforge_version',
+            'mod_version',
+            'mod_group',
     ]
 
     static Map<String, Object> getProperties(Project project) {
         Map<String, Object> map = [
-                'version': project.version,
-                'group'  : project.group
+                'mod_version': project.version,
+                'mod_group'  : project.group
         ]
 
         for (String key : PROPERTY_KEYS) {

@@ -16,7 +16,7 @@ if (localPropsFile.exists()) {
 
 def token = localProps.getProperty('CURSEFORGE_TOKEN')
 def project_id = localProps.getProperty('CURSEFORGE_ID')
-def mod_version = rootProps.getProperty("version")
+def mod_version = rootProps.getProperty("mod_version")
 def mod_name = rootProps.getProperty("mod_name")
 def release_mode = rootProps.getProperty("mod_release_type")
 
