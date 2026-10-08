@@ -1,6 +1,6 @@
 plugins {
     id 'groovy-gradle-plugin'
-    id 'com.dynamero.props' version '1.0.1'
+    id 'com.dynamero.props' version '1.500.0'
 }
 
 repositories {
