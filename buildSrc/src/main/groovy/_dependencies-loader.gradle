@@ -7,6 +7,4 @@ dependencies {
     }
     commonJava project(path: ':common', configuration: 'commonJava')
     commonResources project(path: ':common', configuration: 'commonResources')
-
-    implementation 'com.dynamero:props-gradle-plugin:1.500.0'
 }

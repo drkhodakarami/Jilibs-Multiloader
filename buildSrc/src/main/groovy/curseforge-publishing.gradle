@@ -1,10 +1,24 @@
 plugins {
     id 'io.github.themrmilchmann.curseforge-publish'
-    id 'com.dynamero.props'
 }
 
-def prop = props
-def local = props.load('local')
+def rootProps = new Properties()
+def rootPropsFile = rootProject.file("gradle.properties")
+if (rootPropsFile.exists()) {
+    rootPropsFile.withReader { rootProps.load(it) }
+}
+
+def localProps = new Properties()
+def localPropsFile = rootProject.file("local.properties")
+if (localPropsFile.exists()) {
+    localPropsFile.withReader { localProps.load(it) }
+}
+
+def token = localProps.getProperty('CURSEFORGE_TOKEN')
+def project_id = localProps.getProperty('CURSEFORGE_ID')
+def mod_version = rootProps.getProperty("version")
+def mod_name = rootProps.getProperty("mod_name")
+def release_mode = rootProps.getProperty("mod_release_type")
 
 def changelogFile = rootProject.file("CHANGELOG.md")
 def changelogContent = changelogFile.exists() ? changelogFile.text : "No changelog provided."
@@ -12,19 +26,19 @@ def changelogContent = changelogFile.exists() ? changelogFile.text : "No changel
 def uploadTask = tasks.named('jar') //tasks.findByName('remapJar')
 
 curseforge {
-    apiToken = "${local.CURSEFORGE_TOKEN}"
+    apiToken = "${token}"
 
     publications {
         register("curseForge") {
-            projectId = "${local.CURSEFORGE_ID}"
+            projectId = "${project_id}"
 
             //gameVersions.add("${game_version}")
 
             artifacts.register("main") {
                 from(uploadTask)
 
-                displayName = "${prop.mod_name} [${project.name.capitalize()}] - ${prop.mod_version}"
-                releaseType = "${prop.release_mode}"
+                displayName = "${mod_name} [${project.name.capitalize()}] - ${mod_version}"
+                releaseType = "${release_mode}"
 
                 //changelog = changelogContent
                 //changelogType = 'markdown'

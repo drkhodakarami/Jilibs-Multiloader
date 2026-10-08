@@ -1,20 +1,27 @@
 plugins {
     id 'groovy-gradle-plugin'
-    id 'com.dynamero.props' version '1.500.0'
 }
 
 repositories {
-    mavenLocal()
     gradlePluginPortal()
     mavenCentral()
 }
+
+def rootProps = new Properties()
+def rootPropsFile = file("${rootDir.parent}/gradle.properties")
+if (rootPropsFile.exists()) {
+    rootPropsFile.withReader { rootProps.load(it) }
+}
+
+def minotaur_ver = rootProps.getProperty("minotaur_version")
+def cursegralde_ver = rootProps.getProperty("cursegralde_version")
 
 dependencies {
     implementation gradleApi()
 
     // Add the plugin marker for Minotaur:
-    implementation "com.modrinth.minotaur:com.modrinth.minotaur.gradle.plugin:${props.minotaur_version}"
+    implementation "com.modrinth.minotaur:com.modrinth.minotaur.gradle.plugin:${minotaur_ver}"
 
     // If you plan to use CurseGradle in buildSrc as well:
-    implementation "io.github.themrmilchmann.curseforge-publish:io.github.themrmilchmann.curseforge-publish.gradle.plugin:${props.cursegralde_version}"
+    implementation "io.github.themrmilchmann.curseforge-publish:io.github.themrmilchmann.curseforge-publish.gradle.plugin:${cursegralde_ver}"
 }
