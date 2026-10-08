@@ -1,0 +1,9 @@
+plugins {
+    id 'multiloader-loader'
+    id 'net.neoforged.moddev'
+}
+
+apply from: "${rootDir}/gradle/neoforge/_dependencies.gradle"
+apply from: "${rootDir}/gradle/neoforge/neoforge-block.gradle"
+apply from: "${rootDir}/gradle/neoforge/mc-gradle-loader.gradle"
+apply from: "${rootDir}/gradle/neoforge/source-sets.gradle"

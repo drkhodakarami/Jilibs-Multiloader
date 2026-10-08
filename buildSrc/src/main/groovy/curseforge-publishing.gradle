@@ -1,0 +1,53 @@
+plugins {
+    id 'io.github.themrmilchmann.curseforge-publish'
+    id 'com.dynamero.props'
+}
+
+def prop = props
+def local = props.load('local')
+
+def changelogFile = rootProject.file("CHANGELOG.md")
+def changelogContent = changelogFile.exists() ? changelogFile.text : "No changelog provided."
+
+def uploadTask = tasks.named('jar') //tasks.findByName('remapJar')
+
+curseforge {
+    apiToken = "${local.CURSEFORGE_TOKEN}"
+
+    publications {
+        register("curseForge") {
+            projectId = "${local.CURSEFORGE_ID}"
+
+            //gameVersions.add("${game_version}")
+
+            artifacts.register("main") {
+                from(uploadTask)
+
+                displayName = "${prop.mod_name} [${project.name.capitalize()}] - ${prop.mod_version}"
+                releaseType = "${prop.release_mode}"
+
+                //changelog = changelogContent
+                //changelogType = 'markdown'
+
+                changelog {
+                    format = 'markdown'
+                    content = changelogContent
+                }
+
+                relations {
+                    embeddedLibrary("jilibs")
+                    //incompatible("some-incompatible-mod-slug")
+                    //optionalDependency("some-optional-dependency-slug")
+                    //requiredDependency("some-required-dependency-slug")
+                    //tool("some-tool-slug")
+                }
+            }
+        }
+    }
+}
+
+tasks.register('curseforge') {
+    group = 'publishing'
+    description = "Publishes ${project.name} artifacts to CurseForge."
+    dependsOn(tasks.named('publishToCurseForge'))
+}

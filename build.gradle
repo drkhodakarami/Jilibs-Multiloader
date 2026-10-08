@@ -1,0 +1,11 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version "${loom_version}" apply false
+    id 'net.neoforged.moddev' version "${neoforge_plugin_version}" apply false
+    id 'com.diffplug.spotless' version "${spotless_version}" apply false
+    id 'idea'
+}
+
+apply from: 'gradle/global/run-all-clients-task.gradle'
+apply from: 'gradle/global/tasks-custom.gradle'
+apply from: 'gradle/global/tasks-organize.gradle'
+apply from: 'gradle/global/spotless.gradle'

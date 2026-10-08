@@ -1,0 +1,61 @@
+plugins {
+    id 'maven-publish'
+}
+
+def propertiesFile = project.rootProject.file('local.properties')
+if (!propertiesFile.exists()) {
+    throw new GradleException("Missing required configuration file: ${propertiesFile.absolutePath}")
+}
+
+Properties properties = new Properties()
+propertiesFile.withInputStream { stream ->
+    properties.load(stream)
+}
+
+def requireProperty = { String key ->
+    def val = properties.getProperty(key)
+    if (!val || val.trim().isEmpty()) {
+        throw new GradleException("Required property '${key}' is missing or empty in ${propertiesFile.name}")
+    }
+    return val.trim()
+}
+	
+def repsyUrl = requireProperty('REPSY_URL')
+def repsyUsername = requireProperty('REPSY_USERNAME')
+def repsyPassword = requireProperty('REPSY_PASSWORD')
+
+// =========================================================================
+// Toggle publishing for :common:
+// As a rule, libraries should publish the :common and normal mods should skip (uncomment) the :common
+// Uncomment this line to skip publishing :common. Comment it out to publish :common.
+//if (project.name == 'common') return
+// =========================================================================
+
+afterEvaluate {
+    publishing {
+        publications {
+            register('mavenJava', MavenPublication) {
+                artifactId = "${project.findProperty('mod_id')}-${project.name.toLowerCase()}"
+
+                from components.java
+
+                tasks.matching { it.name in ['sourcesJar', 'sourceJar'] }.configureEach { sourceTask ->
+                    artifact(sourceTask)
+                }
+            }
+        }
+
+        repositories {
+			repositories.mavenLocal()
+            			
+            maven {
+                name = 'repsy'
+                url = uri(repsyUrl)
+                credentials(PasswordCredentials) {
+					username = repsyUsername
+					password = repsyPassword
+				}
+            }
+        }
+    }
+}

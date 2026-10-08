@@ -1,0 +1,73 @@
+apply plugin: 'idea'
+
+def generateRunConfigs = {
+    def runConfigsDir = file("${rootDir}/.idea/runConfigurations")
+    if (!runConfigsDir.exists()) {
+        runConfigsDir.mkdirs()
+    }
+
+    def createGradleRunConfig = { String configName, String projectPath, String taskName ->
+        """<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="${configName}" type="GradleRunConfiguration" factoryName="Gradle">
+    <ExternalSystemSettings>
+      <option name="executionName" />
+      <option name="externalProjectPath" value="\$PROJECT_DIR\$" />
+      <option name="externalSystemIdString" value="GRADLE" />
+      <option name="scriptParameters" value="" />
+      <option name="taskDescriptions">
+        <list />
+      </option>
+      <option name="taskNames">
+        <list>
+          <option value="${projectPath}:${taskName}" />
+        </list>
+      </option>
+      <option name="vmOptions" value="" />
+    </ExternalSystemSettings>
+    <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+    <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+    <DebugAllEnabled>false</DebugAllEnabled>
+    <RunAsTest>false</RunAsTest>
+    <method v="2" />
+  </configuration>
+</component>"""
+    }
+
+    // 1. Fabric Run Config
+    file("${runConfigsDir}/Fabric_Client.xml").text =
+            createGradleRunConfig('Fabric Client', ':fabric', 'runClient')
+
+    // 2. NeoForge Run Config
+    file("${runConfigsDir}/NeoForge_Client.xml").text =
+            createGradleRunConfig('NeoForge Client', ':neoforge', 'runClient')
+
+    // 3. Compound Run Config (Runs both in parallel)
+    file("${runConfigsDir}/Run_All_Clients.xml").text = """<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Run All Clients" type="CompoundRunConfigurationType">
+    <toRun name="Fabric Client" type="GradleRunConfiguration" />
+    <toRun name="NeoForge Client" type="GradleRunConfiguration" />
+    <method v="2" />
+  </configuration>
+</component>"""
+}
+
+
+tasks.register('generateIntellijRuns') {
+    group = 'ide'
+    description = 'Generates IntelliJ Run Configurations for Fabric, NeoForge, and a Compound task.'
+
+    doLast {
+        generateRunConfigs()
+        println "Generated IntelliJ Compound and Gradle run configurations in .idea/runConfigurations/"
+    }
+}
+
+tasks.matching { it.name in ['idea', 'ideaWorkspace', 'prepareKotlinIdeaImport'] }.configureEach {
+    doFirst {
+        generateRunConfigs()
+    }
+}
+
+gradle.projectsEvaluated {
+    generateRunConfigs()
+}

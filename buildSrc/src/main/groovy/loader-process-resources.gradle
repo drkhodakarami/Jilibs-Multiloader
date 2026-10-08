@@ -1,0 +1,4 @@
+processResources {
+    dependsOn(configurations.commonResources)
+    from(configurations.commonResources)
+}

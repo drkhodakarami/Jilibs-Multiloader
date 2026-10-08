@@ -1,0 +1,24 @@
+plugins {
+}
+
+tasks.named('processResources', ProcessResources).configure {
+    // 1. Fetch properties from the helper class
+    var expandProps = ResourceExpansion.getProperties(project)
+
+    // 2. Prepare JSON-escaped variant
+    var jsonExpandProps = expandProps.collectEntries { key, value ->
+        [(key): value instanceof String ? value.replace("\n", "\\\\n") : value]
+    }
+
+    // 3. Register inputs for cache
+    inputs.properties(expandProps)
+
+    // 4. Expand target files
+    filesMatching(['META-INF/mods.toml', 'META-INF/neoforge.mods.toml']) {
+        expand expandProps
+    }
+
+    filesMatching(['pack.mcmeta', 'fabric.mod.json', '*.mixins.json']) {
+        expand jsonExpandProps
+    }
+}

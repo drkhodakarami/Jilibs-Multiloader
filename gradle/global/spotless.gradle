@@ -1,0 +1,27 @@
+subprojects {
+    apply plugin: 'com.diffplug.spotless'
+
+    spotless {
+        java {
+            licenseHeaderFile("${rootDir.parent}/HEADER")
+            removeUnusedImports()
+            importOrder('java', 'javax', '', 'net.minecraft', 'com.dynamero.jilibs', 'com.dynamero')
+            leadingTabsToSpaces(4)
+            //leadingSpacesToTabs()
+            trimTrailingWhitespace()
+        }
+
+        groovyGradle {
+            target('src/**/*.gradle', '*.gradle', 'gradle/*.gradle')
+            leadingSpacesToTabs()
+            leadingTabsToSpaces(4)
+            trimTrailingWhitespace()
+        }
+
+        json {
+            target 'src/**/lang/en_us.json'
+            targetExclude 'src/**/generated/**'
+            gson().indentWithSpaces(2).sortByKeys()
+        }
+    }
+}

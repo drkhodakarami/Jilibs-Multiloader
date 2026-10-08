@@ -1,0 +1,9 @@
+plugins {
+    id 'multiloader-loader'
+    id 'net.fabricmc.fabric-loom'
+}
+
+apply from: "${rootDir}/gradle/fabric/_dependencies.gradle"
+apply from: "${rootDir}/gradle/fabric/loom.gradle"
+apply from: "${rootDir}/gradle/fabric/mc-gradle-loader.gradle"
+apply from: "${rootDir}/gradle/fabric/source-sets.gradle"

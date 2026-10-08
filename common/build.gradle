@@ -1,0 +1,11 @@
+plugins {
+    id 'multiloader-common'
+    id 'net.neoforged.moddev'
+}
+
+apply from: "${rootDir}/gradle/common/neoforge-block.gradle"
+apply from: "${rootDir}/gradle/common/_dependencies.gradle"
+apply from: "${rootDir}/gradle/common/configurations.gradle"
+apply from: "${rootDir}/gradle/common/artifacts.gradle"
+apply from: "${rootDir}/gradle/common/mc-gradle-loader.gradle"
+apply from: "${rootDir}/gradle/common/source-sets.gradle"

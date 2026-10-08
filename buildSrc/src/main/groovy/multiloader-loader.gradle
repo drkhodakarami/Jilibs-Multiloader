@@ -1,0 +1,9 @@
+plugins {
+    id 'multiloader-common'
+    id 'modrinth-publishing'
+    id 'curseforge-publishing'
+    id 'configure-loader'
+    id '_dependencies-loader'
+    id 'loader-tasks'
+    id 'loader-process-resources'
+}

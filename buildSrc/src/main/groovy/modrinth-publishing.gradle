@@ -1,0 +1,50 @@
+plugins {
+    id 'com.modrinth.minotaur'
+}
+
+def rootProps = new Properties()
+def rootPropsFile = rootProject.file("gradle.properties")
+if (rootPropsFile.exists()) {
+    rootPropsFile.withReader { rootProps.load(it) }
+}
+
+def localProps = new Properties()
+def localPropsFile = rootProject.file("local.properties")
+if (localPropsFile.exists()) {
+    localPropsFile.withReader { localProps.load(it) }
+}
+
+def token = localProps.getProperty('MODRINTH_TOKEN')
+def project_id = localProps.getProperty("MODRINTH_ID")
+def mod_version = rootProps.getProperty("version")
+def game_version = rootProps.getProperty("minecraft_version")
+def release_mode = rootProps.getProperty("mod_release_type")
+def mod_name = rootProps.getProperty("mod_name")
+
+def changelogFile = rootProject.file("CHANGELOG.md")
+def changelogText = changelogFile.exists() ? changelogFile.text : "No changelog provided."
+
+def loaderName = project.name.contains('fabric') ? 'fabric' : 'neoforge'
+
+// build.gradle
+modrinth {
+    token = "${token}"
+    projectId = "${project_id}"
+    versionNumber = "${mod_version}+${loaderName}"
+    versionName = "${mod_name} [${loaderName.capitalize()}] ${mod_version}"
+    versionType = "${release_mode}"
+    uploadFile = tasks.named('jar') // With Loom, this MUST be set to `remapJar` instead of `jar`!
+    gameVersions = ["${game_version}"] // Must be an array, even with only one version
+    loaders = [loaderName] // Must also be an array - no need to specify this if you're using Loom or ForgeGradle
+    dependencies { // A special DSL for creating dependencies
+        // scope.type
+        // The scope can be `required`, `optional`, `incompatible`, or `embedded`
+        // The type can either be `project` or `version`
+        if (loaderName == 'fabric') {
+            required.project "fabric-api" // Creates a new required dependency on Fabric API
+        }
+        //optional.version "sodium", "mc1.19.3-0.4.8" // Creates a new optional dependency on this specific version of Sodium
+    }
+
+    changelog = changelogText
+}
