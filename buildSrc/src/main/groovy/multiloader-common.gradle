@@ -1,9 +1,0 @@
-plugins {
-    id 'java-library'
-    id 'maven-publish'
-    id 'base-java'
-    id '_repositories'
-    id 'jars'
-    id 'process-resources'
-    id 'general-publishing'
-}

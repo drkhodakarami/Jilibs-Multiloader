@@ -1,11 +1,36 @@
 plugins {
+    id 'com.dynamero.props' version '1.0.0' apply false
     id 'net.fabricmc.fabric-loom' version "${loom_version}" apply false
     id 'net.neoforged.moddev' version "${neoforge_plugin_version}" apply false
+    id 'eclipse'
     id 'com.diffplug.spotless' version "${spotless_version}" apply false
     id 'idea'
+    id 'maven-publish'
 }
 
-apply from: 'gradle/global/run-all-clients-task.gradle'
-apply from: 'gradle/global/tasks-custom.gradle'
-apply from: 'gradle/global/tasks-organize.gradle'
-apply from: 'gradle/global/spotless.gradle'
+apply from: './gradle/docs/javaDocs.gradle'
+apply from: './gradle/git-versioning.gradle'
+apply from: './gradle/run-all-clients-task.gradle'
+apply from: './gradle/tasks-organize.gradle'
+
+allprojects {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}
+
+subprojects {
+    apply from: '../gradle/docs/javaDocs.gradle'
+    apply from: '../gradle/git-versioning.gradle'
+
+    // Only apply to common, fabric, and neoforge
+    if (name in ['common', 'fabric', 'neoforge']) {
+        apply from: rootProject.file("./gradle/maven-publication.gradle")
+    }
+
+    tasks.withType(Jar).configureEach {
+        // Directs all generated jars to rootProject/build/libs
+        destinationDirectory.set(rootProject.layout.buildDirectory.dir('libs'))
+    }
+}

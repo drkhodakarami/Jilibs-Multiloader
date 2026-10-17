@@ -1,0 +1,104 @@
+apply plugin: 'com.dynamero.props'
+
+import groovy.json.JsonSlurper
+
+def local = props.load('local')
+
+def repsyUrl = local.REPSY_URL
+def repsyUsername = local.REPSY_USERNAME
+def repsyPassword = local.REPSY_PASSWORD
+
+if (tasks.findByName('javadocJar')) {
+    build.dependsOn javadocJar
+}
+
+publishing {
+    setupRepositories(repositories, repsyUrl, repsyUsername, repsyPassword)
+
+    publications {
+        mavenJava(MavenPublication) {
+            // Produces: mylib-common, mylib-fabric, mylib-neoforge
+            artifactId = "${rootProject.name.toLowerCase()}-${project.name.toLowerCase()}"
+
+            // Fabric uses remapJar; Common and NeoForge use standard jar
+            def primaryJarTask = tasks.findByName('remapJar') ?: tasks.findByName('jar')
+            if (primaryJarTask) {
+                artifact(primaryJarTask) {
+                    builtBy primaryJarTask
+                }
+            }ssssssssss
+
+            if (tasks.findByName('sourcesJar')) {
+                artifact(sourcesJar) {
+                    builtBy sourcesJar
+                }
+            }
+
+            if (tasks.findByName('javadocJar')) {
+                artifact(javadocJar) {
+                    builtBy javadocJar
+                }
+            }
+
+            pom {
+                addPomMetadataInformation(project, pom)
+            }
+        }
+    }
+}
+
+def addPomMetadataInformation(Project project, MavenPom pom) {
+    // Locate fabric.mod.json for base info, falling back to root or fabric subproject
+    def fabricJsonFile = project.file("src/main/resources/fabric.mod.json")
+    if (!fabricJsonFile.exists()) {
+        fabricJsonFile = project.rootProject.file("fabric/src/main/resources/fabric.mod.json")
+    }
+
+    String modName = project.mod_name ?: project.rootProject.name
+    String modDescription = "Multi-loader library for Minecraft"
+
+    if (fabricJsonFile.exists()) {
+        def parsed = new JsonSlurper().parse(fabricJsonFile)
+        modName = parsed.name ?: modName
+        modDescription = parsed.description ?: modDescription
+    }
+
+    pom.name = "${modName} (${project.name.capitalize()})"
+    pom.description = modDescription
+    pom.url = "https://github.com/drkhodakarami/JiLibs/tree/HEAD/${project.rootDir.relativePath(project.projectDir)}"
+
+    pom.licenses {
+        license {
+            name = "LGPL-3.0"
+            url = "https://www.gnu.org/licenses/lgpl-3.0.html"
+        }
+    }
+    pom.developers {
+        developer {
+            name = "TheMentor"
+            url = "https://www.dynamero.com"
+        }
+    }
+    pom.scm {
+        connection = "scm:git:https://github.com/drkhodakarami/JiLibs.git"
+        url = "https://github.com/drkhodakarami/JiLibs"
+        developerConnection = "scm:git:git@github.com:drkhodakarami/JiLibs.git"
+    }
+    pom.issueManagement {
+        system = "GitHub"
+        url = "https://github.com/drkhodakarami/JiLibs/issues"
+    }
+}
+
+void setupRepositories(RepositoryHandler repositories, String repsyUrl, String repsyUsername, String repsyPassword) {
+    repositories.mavenLocal()
+    if (repsyUrl) {
+        repositories.maven {
+            url = repsyUrl
+            credentials {
+                username = repsyUsername
+                password = repsyPassword
+            }
+        }
+    }
+}

@@ -16,7 +16,7 @@
     "environment": "*",
     "entrypoints": {
         "main": [
-            "com.dynamero.jilibs.ExampleMod"
+            "com.dynamero.jilibs.JilibsFabricMain"
         ]
     },
     "mixins": [

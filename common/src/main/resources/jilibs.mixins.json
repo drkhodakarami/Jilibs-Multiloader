@@ -5,7 +5,7 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [],
   "client": [
-    "MixinMinecraft"
+    "com.dynamero.jilibs.mixin.MixinMinecraft"
   ],
   "server": [],
   "injectors": {

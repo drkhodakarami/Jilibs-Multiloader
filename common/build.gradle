@@ -1,11 +1,74 @@
 plugins {
-    id 'multiloader-common'
+    id 'java-library'
+    id 'maven-publish'
     id 'net.neoforged.moddev'
 }
 
-apply from: "${rootDir}/gradle/common/neoforge-block.gradle"
-apply from: "${rootDir}/gradle/common/_dependencies.gradle"
-apply from: "${rootDir}/gradle/common/configurations.gradle"
-apply from: "${rootDir}/gradle/common/artifacts.gradle"
-apply from: "${rootDir}/gradle/common/mc-gradle-loader.gradle"
-apply from: "${rootDir}/gradle/common/source-sets.gradle"
+apply from: '../gradle/common.gradle'
+apply from: '../gradle/general.gradle'
+
+def prp = props.load('dependencies')
+
+neoForge {
+    neoFormVersion = prp.neo_form_version
+    def at = file('src/main/resources/META-INF/accesstransformer.cfg')
+    if (at.exists()) {
+        accessTransformers.from(at.absolutePath)
+    }
+}
+
+sourceSets.main.resources {
+    srcDir('src/generated/resources')
+}
+
+def commonResourcesDir = layout.buildDirectory.dir('generated/commonResources')
+
+def syncCommonResources = tasks.register('syncCommonResources', Sync) {
+    group = 'z-never used'
+    from sourceSets.main.resources
+    into commonResourcesDir
+}
+
+evaluationDependsOn(':neoforge')
+
+dependencies {
+    compileOnly("net.fabricmc:sponge-mixin:${prp.spongepowered_version}+mixin.${prp.spongepowered_meta_version}")
+    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:${prp.mixinextras_version}"))
+}
+
+configurations {
+    commonJava {
+        canBeResolved = false
+        canBeConsumed = true
+    }
+    commonResources {
+        canBeResolved = false
+        canBeConsumed = true
+    }
+}
+
+artifacts {
+    commonJava sourceSets.main.java.sourceDirectories.singleFile
+    commonResources(commonResourcesDir) {
+        builtBy syncCommonResources
+    }
+}
+
+// Implement mcgradleconventions loader attribute
+def loaderAttribute = Attribute.of('io.github.mcgradleconventions.loader', String)
+['apiElements', 'runtimeElements', 'sourcesElements', 'javadocElements'].each { variant ->
+    configurations.named(variant) {
+        attributes {
+            attribute(loaderAttribute, 'common')
+        }
+    }
+}
+sourceSets.configureEach {
+    [it.compileClasspathConfigurationName, it.runtimeClasspathConfigurationName].each { variant->
+        configurations.named(variant) {
+            attributes {
+                attribute(loaderAttribute, 'common')
+            }
+        }
+    }
+}

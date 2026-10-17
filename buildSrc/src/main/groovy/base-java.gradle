@@ -1,9 +1,0 @@
-base {
-    archivesName = "${mod_id}-${project.name}"
-}
-
-java {
-    toolchain.languageVersion = JavaLanguageVersion.of(java_version)
-    withSourcesJar()
-    withJavadocJar()
-}

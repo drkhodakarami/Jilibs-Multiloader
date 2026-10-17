@@ -1,0 +1,5 @@
+apply plugin: 'com.dynamero.props'
+
+base {
+    archivesName = "${props.mod_name}-common"
+}

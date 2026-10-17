@@ -13,6 +13,8 @@ iconFile="${mod_id}.png"
 credits="${mod_credits}"
 authors = "${mod_author}"
 description = '''${mod_description}'''
+[[accessTransformers]]
+file = "META-INF/accesstransformer.cfg"
 [[mixins]]
 config = "${mod_id}.mixins.json"
 [[mixins]]
