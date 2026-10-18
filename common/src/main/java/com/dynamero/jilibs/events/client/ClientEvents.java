@@ -17,6 +17,7 @@
 package com.dynamero.jilibs.events.client;
 
 import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.platform.services.events.IClientEventService;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -45,55 +46,55 @@ public final class ClientEvents {
     }
 
     public static void onStartClientTick(Consumer<Minecraft> callback) {
-        ClientEventService.get().onStartClientTick(require(callback));
+        IClientEventService.get().onStartClientTick(require(callback));
     }
 
     public static void onEndClientTick(Consumer<Minecraft> callback) {
-        ClientEventService.get().onEndClientTick(require(callback));
+        IClientEventService.get().onEndClientTick(require(callback));
     }
 
     public static void onStartLevelTick(Consumer<ClientLevel> callback) {
-        ClientEventService.get().onStartLevelTick(require(callback));
+        IClientEventService.get().onStartLevelTick(require(callback));
     }
 
     public static void onEndLevelTick(Consumer<ClientLevel> callback) {
-        ClientEventService.get().onEndLevelTick(require(callback));
+        IClientEventService.get().onEndLevelTick(require(callback));
     }
 
     public static void onLevelEnter(Consumer<ClientLevel> callback) {
-        ClientEventService.get().onLevelEnter(require(callback));
+        IClientEventService.get().onLevelEnter(require(callback));
     }
 
     public static void onLevelLeave(Consumer<ClientLevel> callback) {
-        ClientEventService.get().onLevelLeave(require(callback));
+        IClientEventService.get().onLevelLeave(require(callback));
     }
 
     public static void onBlockEntityUnload(BiConsumer<BlockEntity, ClientLevel> callback) {
-        ClientEventService.get().onBlockEntityUnload(require(callback));
+        IClientEventService.get().onBlockEntityUnload(require(callback));
     }
 
     public static void onConnection(Consumer<Minecraft> callback) {
-        ClientEventService.get().onConnection(require(callback));
+        IClientEventService.get().onConnection(require(callback));
     }
 
     public static void onDisconnection(Consumer<Minecraft> callback) {
-        ClientEventService.get().onDisconnection(require(callback));
+        IClientEventService.get().onDisconnection(require(callback));
     }
 
     public static void onTooltip(TooltipCallback callback) {
-        ClientEventService.get().onTooltip(require(callback));
+        IClientEventService.get().onTooltip(require(callback));
     }
 
     public static KeyMapping registerKeyMapping(KeyMapping keyMapping) {
-        return ClientEventService.get().registerKeyMapping(require(keyMapping));
+        return IClientEventService.get().registerKeyMapping(require(keyMapping));
     }
 
     public static void registerResourceReloadListener(Identifier id, PreparableReloadListener listener) {
-        ClientEventService.get().registerResourceReloadListener(require(id), require(listener));
+        IClientEventService.get().registerResourceReloadListener(require(id), require(listener));
     }
 
     public static void onRenderStage(RenderStage stage, Consumer<LevelRenderContext> callback) {
-        ClientEventService.get().onRenderStage(require(stage), require(callback));
+        IClientEventService.get().onRenderStage(require(stage), require(callback));
     }
 
     private static <T> T require(T value) {

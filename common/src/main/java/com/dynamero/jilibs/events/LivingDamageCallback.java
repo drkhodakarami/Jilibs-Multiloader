@@ -31,10 +31,5 @@ import net.minecraft.world.entity.LivingEntity;
 @Modrinth("https://modrinth.com/user/jiraiyah")
 public interface LivingDamageCallback
 {
-    /**
-     * Runs after damage has been applied to a living entity on the logical server.
-     *
-     * @param damageTaken the final amount of damage applied after reductions
-     */
-    void afterDamage(LivingEntity entity, DamageSource source, float damageTaken);
+    void afterDamage(LivingEntity entity, DamageSource source, float inflictedDamage, float healthDamage, boolean blocked);
 }

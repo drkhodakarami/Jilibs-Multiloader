@@ -18,6 +18,7 @@ package com.dynamero.jilibs.events;
 
 import com.dynamero.jilibs.contracts.annotations.*;
 import com.dynamero.jilibs.contracts.exceptions.Exceptions;
+import com.dynamero.jilibs.platform.services.events.IEventService;
 import com.mojang.brigadier.CommandDispatcher;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.server.MinecraftServer;

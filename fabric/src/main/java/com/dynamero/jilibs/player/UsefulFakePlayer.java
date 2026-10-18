@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-package com.dynamero.jilibs.utils;
+package com.dynamero.jilibs.player;
 
 import com.dynamero.jilibs.contracts.annotations.*;
 import com.mojang.authlib.GameProfile;
+import net.fabricmc.fabric.api.entity.FakePlayer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemCooldowns;

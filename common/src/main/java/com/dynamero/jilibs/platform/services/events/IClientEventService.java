@@ -14,9 +14,13 @@
  * limitations under the License.
  */
 
-package com.dynamero.jilibs.events.client;
+package com.dynamero.jilibs.platform.services.events;
 
 import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.events.client.ClientEvents;
+import com.dynamero.jilibs.events.client.LevelRenderContext;
+import com.dynamero.jilibs.events.client.RenderStage;
+import com.dynamero.jilibs.events.client.TooltipCallback;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -40,8 +44,9 @@ import java.util.function.Consumer;
 @Discord("https://discord.gg/pmM4emCbuH")
 @Youtube("https://www.youtube.com/@TheMentorCodeLab")
 @Modrinth("https://modrinth.com/user/jiraiyah")
-public interface ClientEventService {
-    static ClientEventService get() {
+public interface IClientEventService
+{
+    static IClientEventService get() {
         return ServiceHolder.INSTANCE;
     }
 
@@ -72,12 +77,12 @@ public interface ClientEventService {
     void onRenderStage(RenderStage stage, Consumer<LevelRenderContext> callback);
 
     final class ServiceHolder {
-        private static final ClientEventService INSTANCE = ServiceLoader.load(
-                ClientEventService.class,
-                ClientEventService.class.getClassLoader()
+        private static final IClientEventService INSTANCE = ServiceLoader.load(
+                IClientEventService.class,
+                IClientEventService.class.getClassLoader()
             )
-            .findFirst()
-            .orElseThrow(() -> new IllegalStateException("No client event service is available"));
+                                                                         .findFirst()
+                                                                         .orElseThrow(() -> new IllegalStateException("No client event service is available"));
 
         private ServiceHolder() {
         }

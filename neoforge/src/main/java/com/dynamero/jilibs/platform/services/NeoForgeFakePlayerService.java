@@ -1,10 +1,11 @@
 package com.dynamero.jilibs.platform.services;
 
+import com.dynamero.jilibs.contracts.annotations.*;
 import com.mojang.authlib.GameProfile;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.neoforge.common.util.FakePlayerFactory;
-import com.dynamero.jilibs.contracts.annotations.*;
+
 @Developer("TheMentor")
 @CreatedAt("2026-10-18")
 @ModifiedAt("2026-10-18")
@@ -16,8 +17,10 @@ import com.dynamero.jilibs.contracts.annotations.*;
 @Modrinth("https://modrinth.com/user/jiraiyah")
 public final class NeoForgeFakePlayerService implements IFakePlayerService
 {
+    //TODO: Look into fake player utils & useful fake player
     @Override
-    public ServerPlayer instance(ServerLevel level, GameProfile profile) {
+    public ServerPlayer get(ServerLevel level, GameProfile profile)
+    {
         return FakePlayerFactory.get(level, profile);
     }
 }

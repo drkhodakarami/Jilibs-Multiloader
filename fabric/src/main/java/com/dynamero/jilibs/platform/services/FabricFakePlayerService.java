@@ -1,10 +1,11 @@
 package com.dynamero.jilibs.platform.services;
 
+import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.player.UsefulFakePlayer;
 import com.mojang.authlib.GameProfile;
-import net.fabricmc.fabric.api.entity.FakePlayer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import com.dynamero.jilibs.contracts.annotations.*;
+
 @Developer("TheMentor")
 @CreatedAt("2026-10-18")
 @ModifiedAt("2026-10-18")
@@ -17,7 +18,8 @@ import com.dynamero.jilibs.contracts.annotations.*;
 public final class FabricFakePlayerService implements IFakePlayerService
 {
     @Override
-    public ServerPlayer instance(ServerLevel level, GameProfile profile) {
-        return FakePlayer.get(level, profile);
+    public ServerPlayer get(ServerLevel level, GameProfile profile)
+    {
+        return UsefulFakePlayer.createPlayer(level, profile);
     }
 }

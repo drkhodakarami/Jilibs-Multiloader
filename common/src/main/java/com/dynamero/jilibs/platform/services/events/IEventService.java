@@ -14,9 +14,13 @@
  * limitations under the License.
  */
 
-package com.dynamero.jilibs.events;
+package com.dynamero.jilibs.platform.services.events;
 
 import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.events.BlockBreakCallback;
+import com.dynamero.jilibs.events.Events;
+import com.dynamero.jilibs.events.LivingDamageCallback;
+import com.dynamero.jilibs.events.PlayerDimensionChangeCallback;
 import com.mojang.brigadier.CommandDispatcher;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.server.MinecraftServer;

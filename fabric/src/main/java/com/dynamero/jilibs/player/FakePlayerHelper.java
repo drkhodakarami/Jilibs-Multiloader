@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.dynamero.jilibs.utils;
+package com.dynamero.jilibs.player;
 
 import com.dynamero.jilibs.contracts.annotations.*;
 import net.minecraft.core.BlockPos;
