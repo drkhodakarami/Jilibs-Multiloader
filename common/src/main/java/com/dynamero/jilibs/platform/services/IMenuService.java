@@ -16,13 +16,11 @@
 
 package com.dynamero.jilibs.platform.services;
 
-import com.dynamero.jilibs.client.interfaces.ExtendedMenuProvider;
-import com.dynamero.jilibs.client.interfaces.ServerMenuFactory;
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.network.IntegerPayload;
-import com.dynamero.jilibs.platform.services.registrars.utils.ExtendedMenuFactory;
-import com.dynamero.jilibs.platform.services.registrars.utils.IModScopedRegistrar;
-import com.dynamero.jilibs.platform.services.registrars.utils.handles.MenuTypeHandle;
+import java.util.OptionalInt;
+
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.StreamCodec;
@@ -34,10 +32,14 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
-import org.jspecify.annotations.NonNull;
-import org.jspecify.annotations.Nullable;
 
-import java.util.OptionalInt;
+import com.dynamero.jilibs.client.interfaces.ExtendedMenuProvider;
+import com.dynamero.jilibs.client.interfaces.ServerMenuFactory;
+import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.network.IntegerPayload;
+import com.dynamero.jilibs.platform.services.registrars.utils.ExtendedMenuFactory;
+import com.dynamero.jilibs.platform.services.registrars.utils.IModScopedRegistrar;
+import com.dynamero.jilibs.platform.services.registrars.utils.handles.MenuTypeHandle;
 
 @Developer("TheMentor")
 @CreatedAt("2026-10-18")

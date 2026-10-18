@@ -48,9 +48,9 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import com.dynamero.jilibs.blockentity.AbstractBaseBE;
-import com.dynamero.jilibs.client.BlockEntityScreen;
 import com.dynamero.jilibs.components.BlockProperties;
 import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.interfaces.BlockEntityMenu;
 import com.dynamero.jilibs.interfaces.TickProvider;
 import com.dynamero.jilibs.interfaces.Ticking;
 import com.dynamero.jilibs.interfaces.WrenchHandler;
@@ -249,7 +249,7 @@ public abstract class AbstractBaseBlock extends Block implements EntityBlock, Ti
             if (!world.isClientSide())
             {
                 BlockEntity blockEntity = world.getBlockEntity(pos);
-                if (player instanceof ServerPlayer sPlayer && blockEntity instanceof BlockEntityScreen<?> blockEntityWithGui)
+                if (player instanceof ServerPlayer sPlayer && blockEntity instanceof BlockEntityMenu<?> blockEntityWithGui)
                 {
                     sPlayer.openMenu(blockEntityWithGui);
                 }

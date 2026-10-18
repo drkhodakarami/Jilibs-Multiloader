@@ -21,7 +21,6 @@ import static java.lang.annotation.ElementType.*;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Target;
 
-import com.dynamero.jilibs.contracts.annotations.*;
 /**
  * Annotation to link a website of the developer.
  *

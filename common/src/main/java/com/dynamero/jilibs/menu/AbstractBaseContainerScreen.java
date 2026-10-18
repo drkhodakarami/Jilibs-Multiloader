@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.dynamero.jilibs.client.gui.menu;
+package com.dynamero.jilibs.menu;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -24,7 +24,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
-import com.dynamero.jilibs.client.gui.AbstractBaseContainerScreen;
 import com.dynamero.jilibs.client.gui.constants.ContainerBaseTextures;
 import com.dynamero.jilibs.client.gui.utils.MenuHelper;
 import com.dynamero.jilibs.contracts.annotations.*;
@@ -38,11 +37,11 @@ import com.dynamero.jilibs.contracts.annotations.*;
 @Discord("https://discord.gg/pmM4emCbuH")
 @Youtube("https://www.youtube.com/@TheMentorCodeLab")
 @Modrinth("https://modrinth.com/user/jiraiyah")
-public abstract class AbstractBaseContainerMenu<B extends BlockEntity, T extends AbstractBaseContainerScreen<B>> extends AbstractContainerScreen<@NotNull T>
+public abstract class AbstractBaseContainerScreen<B extends BlockEntity, T extends AbstractBaseContainerMenu<B>> extends AbstractContainerScreen<@NotNull T>
 {
-    public AbstractBaseContainerMenu(T handler, Inventory inventory, Component title)
+    public AbstractBaseContainerScreen(T menu, Inventory inventory, Component title)
     {
-        super(handler, inventory, title);
+        super(menu, inventory, title);
     }
 
     @Override

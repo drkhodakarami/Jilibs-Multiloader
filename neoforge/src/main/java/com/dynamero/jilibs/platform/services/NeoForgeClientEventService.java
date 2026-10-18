@@ -43,9 +43,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import com.dynamero.jilibs.client.events.LevelRenderContext;
 import com.dynamero.jilibs.client.events.RenderStage;
 import com.dynamero.jilibs.client.events.TooltipCallback;
-import com.dynamero.jilibs.platform.services.events.IClientEventService;
-
 import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.platform.services.events.IClientEventService;
 @Developer("TheMentor")
 @CreatedAt("2026-10-18")
 @ModifiedAt("2026-10-18")

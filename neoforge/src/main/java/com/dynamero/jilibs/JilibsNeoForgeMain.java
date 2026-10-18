@@ -16,10 +16,11 @@
 
 package com.dynamero.jilibs;
 
+import net.neoforged.bus.api.IEventBus;
+
+import net.minecraft.SharedConstants;
 
 import com.dynamero.jilibs.contracts.annotations.*;
-import net.minecraft.SharedConstants;
-import net.neoforged.bus.api.IEventBus;
 
 //@Mod(JilibsConstants.MOD_ID)
 @Developer("TheMentor")

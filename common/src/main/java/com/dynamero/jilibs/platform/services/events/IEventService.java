@@ -16,12 +16,12 @@
 
 package com.dynamero.jilibs.platform.services.events;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.platform.Services;
-import com.dynamero.jilibs.events.BlockBreakCallback;
-import com.dynamero.jilibs.events.LivingDamageCallback;
-import com.dynamero.jilibs.events.PlayerDimensionChangeCallback;
+import java.util.ServiceLoader;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+
 import com.mojang.brigadier.CommandDispatcher;
+
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
@@ -29,9 +29,11 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 
-import java.util.ServiceLoader;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
+import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.events.BlockBreakCallback;
+import com.dynamero.jilibs.events.LivingDamageCallback;
+import com.dynamero.jilibs.events.PlayerDimensionChangeCallback;
+import com.dynamero.jilibs.platform.Services;
 
 /**
  * Loader implementation for the deliberately small common event facade.

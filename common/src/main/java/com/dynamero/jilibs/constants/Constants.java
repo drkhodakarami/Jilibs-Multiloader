@@ -44,7 +44,7 @@ public class Constants
     /**
      * Inner class containing constants related to inventory settings.
      */
-    public static class Inventory
+    public static class Inventories
     {
         /**
          * Default output size for an inventory.
@@ -60,7 +60,7 @@ public class Constants
     /**
      * Inner class containing constants related to fluid settings.
      */
-    public static class Fluid
+    public static class Fluids
     {
         /**
          * Inner class containing constants related to fluid container capacities.
@@ -270,7 +270,7 @@ public class Constants
     /**
      * Inner class containing constants related to energy settings.
      */
-    public static class Energy
+    public static class Energies
     {
         /**
          * Default energy capacity in the system.

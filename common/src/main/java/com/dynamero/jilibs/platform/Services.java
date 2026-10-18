@@ -16,9 +16,20 @@
 
 package com.dynamero.jilibs.platform;
 
-import com.dynamero.jilibs.client.events.LevelRenderContext;
-import com.dynamero.jilibs.client.events.RenderStage;
-import com.dynamero.jilibs.client.events.TooltipCallback;
+import java.util.Objects;
+import java.util.ServiceLoader;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+
+import com.mojang.brigadier.CommandDispatcher;
+
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.LivingEntity;
+
 import com.dynamero.jilibs.contracts.annotations.*;
 import com.dynamero.jilibs.contracts.exceptions.Exceptions;
 import com.dynamero.jilibs.events.BlockBreakCallback;
@@ -27,27 +38,8 @@ import com.dynamero.jilibs.events.PlayerDimensionChangeCallback;
 import com.dynamero.jilibs.platform.services.IFakePlayerService;
 import com.dynamero.jilibs.platform.services.IMenuService;
 import com.dynamero.jilibs.platform.services.IPlatformHelper;
-import com.dynamero.jilibs.platform.services.events.IClientEventService;
 import com.dynamero.jilibs.platform.services.events.IEventService;
 import com.dynamero.jilibs.platform.services.registrars.*;
-import com.mojang.brigadier.CommandDispatcher;
-import net.minecraft.client.KeyMapping;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.commands.CommandSourceStack;
-import net.minecraft.resources.Identifier;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.server.packs.resources.PreparableReloadListener;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.level.block.entity.BlockEntity;
-
-import java.util.Objects;
-import java.util.ServiceLoader;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
 
 @SuppressWarnings({"UnnecessaryLocalVariable", "unused"})
 @Developer("TheMentor")
@@ -115,65 +107,7 @@ public class Services
 
     public static class Client
     {
-        public static class Events
-        {
 
-            public static void onStartClientTick(Consumer<Minecraft> callback) {
-                IClientEventService.get().onStartClientTick(require(callback));
-            }
-
-            public static void onEndClientTick(Consumer<Minecraft> callback) {
-                IClientEventService.get().onEndClientTick(require(callback));
-            }
-
-            public static void onStartLevelTick(Consumer<ClientLevel> callback) {
-                IClientEventService.get().onStartLevelTick(require(callback));
-            }
-
-            public static void onEndLevelTick(Consumer<ClientLevel> callback) {
-                IClientEventService.get().onEndLevelTick(require(callback));
-            }
-
-            public static void onLevelEnter(Consumer<ClientLevel> callback) {
-                IClientEventService.get().onLevelEnter(require(callback));
-            }
-
-            public static void onLevelLeave(Consumer<ClientLevel> callback) {
-                IClientEventService.get().onLevelLeave(require(callback));
-            }
-
-            public static void onBlockEntityUnload(BiConsumer<BlockEntity, ClientLevel> callback) {
-                IClientEventService.get().onBlockEntityUnload(require(callback));
-            }
-
-            public static void onConnection(Consumer<Minecraft> callback) {
-                IClientEventService.get().onConnection(require(callback));
-            }
-
-            public static void onDisconnection(Consumer<Minecraft> callback) {
-                IClientEventService.get().onDisconnection(require(callback));
-            }
-
-            public static void onTooltip(TooltipCallback callback) {
-                IClientEventService.get().onTooltip(require(callback));
-            }
-
-            public static KeyMapping registerKeyMapping(KeyMapping keyMapping) {
-                return IClientEventService.get().registerKeyMapping(require(keyMapping));
-            }
-
-            public static void registerResourceReloadListener(Identifier id, PreparableReloadListener listener) {
-                IClientEventService.get().registerResourceReloadListener(require(id), require(listener));
-            }
-
-            public static void onRenderStage(RenderStage stage, Consumer<LevelRenderContext> callback) {
-                IClientEventService.get().onRenderStage(require(stage), require(callback));
-            }
-
-            private static <T> T require(T value) {
-                return Objects.requireNonNull(value, "value");
-            }
-        }
     }
 
     public static class Events

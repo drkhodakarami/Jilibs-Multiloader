@@ -22,8 +22,8 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 
 import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.platform.services.registrars.utils.handles.EntityHandle;
 import com.dynamero.jilibs.platform.services.registrars.utils.IModScopedRegistrar;
+import com.dynamero.jilibs.platform.services.registrars.utils.handles.EntityHandle;
 
 /**
  * Registers custom block entities and entity types for Minecraft.
@@ -48,17 +48,6 @@ public interface IEntityRegistrar extends IModScopedRegistrar<IEntityRegistrar>
     Iterable<? extends EntityType<?>> getList();
 
     ResourceKey<EntityType<?>> key(String name);
-
-    /**
-     * Registers a new block entity type.
-     *
-     * @param <R>             the type of the block entity
-     * @param name            the name of the block entity type
-     * @param block           the block associated with the block entity
-     * @param factory         the factory used to create instances of the block entity
-     * @return the registered block entity type
-     */
-    //<R extends BlockEntity> BlockEntityType<R> register(String name, Block block, FabricBlockEntityTypeBuilder.Factory<R> factory);
 
     /**
      * Registers a new entity type.

@@ -16,17 +16,18 @@
 
 package com.dynamero.jilibs.platform.services.registrars;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.platform.services.registrars.utils.BlockEntityFactory;
-import com.dynamero.jilibs.platform.services.registrars.utils.handles.BlockEntityHandle;
-import com.dynamero.jilibs.platform.services.registrars.utils.handles.BlockHandle;
-import com.dynamero.jilibs.platform.services.registrars.utils.IModScopedRegistrar;
+import java.util.List;
+
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 
-import java.util.List;
+import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.platform.services.registrars.utils.BlockEntityFactory;
+import com.dynamero.jilibs.platform.services.registrars.utils.IModScopedRegistrar;
+import com.dynamero.jilibs.platform.services.registrars.utils.handles.BlockEntityHandle;
+import com.dynamero.jilibs.platform.services.registrars.utils.handles.BlockHandle;
 
 /**
  * Registers custom block entities and entity types for Minecraft.

@@ -32,9 +32,10 @@ package com.dynamero.jilibs.client;
  * limitations under the License.
  */
 
-import com.dynamero.jilibs.client.interfaces.ExtendedMenuProvider;
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.network.IntegerPayload;
+import java.util.Objects;
+
+import org.jspecify.annotations.NonNull;
+
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.MenuProvider;
@@ -43,7 +44,8 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 
-import java.util.Objects;
+import com.dynamero.jilibs.client.interfaces.ExtendedMenuProvider;
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * A {@link MenuType} for an extended menus that
@@ -119,6 +121,7 @@ import java.util.Objects;
  * @param <T> the type of menu created by this type
  * @param <D> the type of the data
  */
+@SuppressWarnings("DataFlowIssue")
 @Developer("TheMentor")
 @CreatedAt("2026-10-18")
 @ModifiedAt("2026-10-18")
@@ -143,18 +146,13 @@ public class ExtendedMenuType<T extends AbstractContainerMenu, D> extends MenuTy
         this.streamCodec = Objects.requireNonNull(streamCodec, "stream codec cannot be null");
     }
 
-    public ExtendedMenuType(int containerId, Inventory inventory, IntegerPayload enityIdPayload)
-    {
-        this(containerId, inventory, inventory.player.level().getEntity(enityIdPayload.value()));
-    }
-
     /**
      * @throws UnsupportedOperationException always; use {@link #create(int, Inventory, Object)}
      * @deprecated Use {@link #create(int, Inventory, Object)} instead.
      */
     @Deprecated
     @Override
-    public final T create(int containerId, Inventory inventory) {
+    public final @NonNull T create(int containerId, @NonNull Inventory inventory) {
         throw new UnsupportedOperationException("Use ExtendedMenuType.create(int, Inventory, FriendlyByteBuf)!");
     }
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.dynamero.jilibs.client;
+package com.dynamero.jilibs.interfaces;
 
 import com.dynamero.jilibs.client.interfaces.ExtendedMenuProvider;
 import com.dynamero.jilibs.contracts.annotations.*;
@@ -34,5 +34,5 @@ import com.dynamero.jilibs.contracts.annotations.*;
 @Discord("https://discord.gg/pmM4emCbuH")
 @Youtube("https://www.youtube.com/@TheMentorCodeLab")
 @Modrinth("https://modrinth.com/user/jiraiyah")
-public interface BlockEntityScreen<T> extends ExtendedMenuProvider<T>
+public interface BlockEntityMenu<T> extends ExtendedMenuProvider<T>
 {}

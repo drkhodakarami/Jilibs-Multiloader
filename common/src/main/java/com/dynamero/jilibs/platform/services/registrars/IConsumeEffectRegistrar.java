@@ -24,8 +24,8 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.consume_effects.ConsumeEffect;
 
 import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.platform.services.registrars.utils.handles.ConsumeEffectHandle;
 import com.dynamero.jilibs.platform.services.registrars.utils.IModScopedRegistrar;
+import com.dynamero.jilibs.platform.services.registrars.utils.handles.ConsumeEffectHandle;
 @Developer("TheMentor")
 @CreatedAt("2026-10-18")
 @ModifiedAt("2026-10-18")

@@ -16,7 +16,21 @@
 
 package com.dynamero.jilibs;
 
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import org.apache.commons.lang3.function.TriFunction;
+
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.inventory.MenuAccess;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.MenuType;
+
 import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.platform.services.ClientServices;
+import com.dynamero.jilibs.platform.services.client.registrars.IScreenRegistrar;
+
 @Developer("TheMentor")
 @CreatedAt("2026-10-18")
 @ModifiedAt("2026-10-18")
@@ -28,5 +42,30 @@ import com.dynamero.jilibs.contracts.annotations.*;
 @Modrinth("https://modrinth.com/user/jiraiyah")
 public class JilibsNeoForgeMainClient
 {
+    public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event)
+    {
+        JilibsCommonClient.init();
+        ClientServices.ENTITY.applyEntityRendererRegistrations(event::registerEntityRenderer);
+    }
 
+    public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event)
+    {
+        JilibsCommonClient.init();
+        ClientServices.ENTITY.applyModelLayerRegistrations(event::registerLayerDefinition);
+    }
+
+    public static void registerScreens(RegisterMenuScreensEvent event)
+    {
+        JilibsCommonClient.init();
+        ClientServices.SCREEN.applyRegistrations(
+                new IScreenRegistrar.MenuScreenRegistrar()
+                {
+                    @Override
+                    public <T extends AbstractContainerMenu, U extends Screen & MenuAccess<T>>
+                    void register(MenuType<T> menuType, TriFunction<T, Inventory, Component, U> factory)
+                    {
+                        event.register(menuType, factory::apply);
+                    }
+                });
+    }
 }

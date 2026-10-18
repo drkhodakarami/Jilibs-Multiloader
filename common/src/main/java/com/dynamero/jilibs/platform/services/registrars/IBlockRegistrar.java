@@ -27,8 +27,8 @@ import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 
 import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.platform.services.registrars.utils.handles.BlockHandle;
 import com.dynamero.jilibs.platform.services.registrars.utils.IModScopedRegistrar;
+import com.dynamero.jilibs.platform.services.registrars.utils.handles.BlockHandle;
 
 /**
  * Provides utility methods for registering blocks in Minecraft.

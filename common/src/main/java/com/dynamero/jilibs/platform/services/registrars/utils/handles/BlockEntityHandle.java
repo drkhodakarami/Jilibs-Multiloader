@@ -16,8 +16,9 @@
 
 package com.dynamero.jilibs.platform.services.registrars.utils.handles;
 
-import com.dynamero.jilibs.contracts.annotations.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+
+import com.dynamero.jilibs.contracts.annotations.*;
 @Developer("TheMentor")
 @CreatedAt("2026-10-18")
 @ModifiedAt("2026-10-18")

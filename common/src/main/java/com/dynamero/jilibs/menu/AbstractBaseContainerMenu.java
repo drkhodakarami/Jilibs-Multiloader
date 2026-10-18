@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.dynamero.jilibs.client.gui;
+package com.dynamero.jilibs.menu;
 
 import java.util.List;
 import java.util.Objects;
@@ -35,6 +35,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import com.dynamero.jilibs.contracts.annotations.*;
 import com.dynamero.jilibs.data.CachedBlockEntity;
 import com.dynamero.jilibs.network.BlockPosPayload;
+
 @SuppressWarnings("unused")
 @Developer("TheMentor")
 @CreatedAt("2026-10-08")
@@ -45,7 +46,7 @@ import com.dynamero.jilibs.network.BlockPosPayload;
 @Discord("https://discord.gg/pmM4emCbuH")
 @Youtube("https://www.youtube.com/@TheMentorCodeLab")
 @Modrinth("https://modrinth.com/user/jiraiyah")
-public abstract class AbstractBaseContainerScreen<T extends BlockEntity> extends AbstractContainerMenu
+public abstract class AbstractBaseContainerMenu<T extends BlockEntity> extends AbstractContainerMenu
 {
     protected final T blockEntity;
     protected final ContainerLevelAccess context;
@@ -54,23 +55,23 @@ public abstract class AbstractBaseContainerScreen<T extends BlockEntity> extends
     protected final Inventory playerInventory;
     protected final Player player;
 
-    public AbstractBaseContainerScreen(MenuType<?> type, int syncID, Inventory playerInventory, BlockPosPayload payload, Class<T> blockEntityClass)
+    public AbstractBaseContainerMenu(MenuType<?> type, int syncID, Inventory playerInventory, BlockPosPayload payload, Class<T> blockEntityClass)
     {
         this(type, syncID, playerInventory, payload, new CachedBlockEntity<>(blockEntityClass));
     }
 
-    public AbstractBaseContainerScreen(MenuType<?> type, int syncID, Inventory playerInventory, BlockPosPayload payload, CachedBlockEntity<T> cachedBE)
+    public AbstractBaseContainerMenu(MenuType<?> type, int syncID, Inventory playerInventory, BlockPosPayload payload, CachedBlockEntity<T> cachedBE)
     {
         this(type, syncID, playerInventory, cachedBE.apply(playerInventory, payload.pos()));
     }
 
     @SuppressWarnings("unchecked")
-    public AbstractBaseContainerScreen(MenuType<?> type, int syncId, Inventory playerInventory, BlockPosPayload payload)
+    public AbstractBaseContainerMenu(MenuType<?> type, int syncId, Inventory playerInventory, BlockPosPayload payload)
     {
         this(type, syncId, playerInventory, (T) Objects.requireNonNull(playerInventory.player.level().getBlockEntity(payload.pos())));
     }
 
-    public AbstractBaseContainerScreen(MenuType<?> type, int syncId, Inventory playerInventory, T blockEntity)
+    public AbstractBaseContainerMenu(MenuType<?> type, int syncId, Inventory playerInventory, T blockEntity)
     {
         super(type, syncId);
         this.world = playerInventory.player.level();

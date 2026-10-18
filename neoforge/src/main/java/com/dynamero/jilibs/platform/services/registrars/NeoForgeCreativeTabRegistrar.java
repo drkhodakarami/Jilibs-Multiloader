@@ -33,8 +33,8 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 
 import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.platform.services.registrars.utils.handles.CreativeTabHandle;
 import com.dynamero.jilibs.platform.services.registrars.utils.INeoForgeRegistrar;
+import com.dynamero.jilibs.platform.services.registrars.utils.handles.CreativeTabHandle;
 import com.dynamero.jilibs.utils.BaseHelper;
 @Developer("TheMentor")
 @CreatedAt("2026-10-18")

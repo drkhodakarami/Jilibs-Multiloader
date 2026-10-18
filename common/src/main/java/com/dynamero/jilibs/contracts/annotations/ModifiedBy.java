@@ -21,7 +21,6 @@ import static java.lang.annotation.ElementType.*;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Target;
 
-import com.dynamero.jilibs.contracts.annotations.*;
 /**
  * Annotation to mark the developer who last modified a class, method, field, or constructor.
  *

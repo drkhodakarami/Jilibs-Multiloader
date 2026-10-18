@@ -19,7 +19,7 @@ package com.dynamero.jilibs.client.interfaces;
 import net.minecraft.server.level.ServerPlayer;
 
 import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.events.Events;
+import com.dynamero.jilibs.platform.Services;
 
 /**
  * Interface implemented by screen handlers (container menus) that require per-tick updates
@@ -49,7 +49,7 @@ public interface ITickMenuHandler
      */
     static void init()
     {
-        Events.onEndServerTick(world ->
+        Services.Events.onEndServerTick(world ->
                                {
                                    for (ServerPlayer player : world.getPlayerList().getPlayers())
                                        if(player.containerMenu instanceof ITickMenuHandler tickableScreen)

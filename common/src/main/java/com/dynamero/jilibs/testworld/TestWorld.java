@@ -26,7 +26,8 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.storage.LevelData;
 
 import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.events.Events;
+import com.dynamero.jilibs.platform.Services;
+
 @SuppressWarnings("resource")
 @Developer("TheMentor")
 @CreatedAt("2026-10-10")
@@ -80,7 +81,7 @@ public final class TestWorld
      */
     public static void init(TestWorldGemerator generator)
     {
-        Events.onServerStarted(server ->
+        Services.Events.onServerStarted(server ->
         {
             if (!isTestWorld(server))
                 return;
@@ -93,7 +94,7 @@ public final class TestWorld
             generator.generate(context);
         });
 
-        Events.onEndLevelTick(TestWorldScheduler::tick);
+        Services.Events.onEndLevelTick(TestWorldScheduler::tick);
     }
 
     private static void configureWorld(TestWorldContext context)

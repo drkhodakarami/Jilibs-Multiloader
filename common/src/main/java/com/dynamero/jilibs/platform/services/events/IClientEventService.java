@@ -16,11 +16,10 @@
 
 package com.dynamero.jilibs.platform.services.events;
 
-import com.dynamero.jilibs.client.events.LevelRenderContext;
-import com.dynamero.jilibs.client.events.RenderStage;
-import com.dynamero.jilibs.client.events.TooltipCallback;
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.platform.Services;
+import java.util.ServiceLoader;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -28,9 +27,11 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.resources.PreparableReloadListener;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
-import java.util.ServiceLoader;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
+import com.dynamero.jilibs.client.events.LevelRenderContext;
+import com.dynamero.jilibs.client.events.RenderStage;
+import com.dynamero.jilibs.client.events.TooltipCallback;
+import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.platform.Services;
 
 /**
  * Client-only loader implementation for {@link Services.Client.Events}. Never resolve this service from a dedicated server.

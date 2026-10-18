@@ -19,10 +19,9 @@ package com.dynamero.jilibs.platform.services.registrars;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.dynamero.jilibs.contracts.annotations.*;
 import com.dynamero.jilibs.contracts.exceptions.Exceptions;
 import com.dynamero.jilibs.contracts.records.ModBlock;
-
-import com.dynamero.jilibs.contracts.annotations.*;
 @Developer("TheMentor")
 @CreatedAt("2026-10-18")
 @ModifiedAt("2026-10-18")

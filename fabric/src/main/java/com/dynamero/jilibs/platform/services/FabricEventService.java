@@ -37,12 +37,11 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 
+import com.dynamero.jilibs.contracts.annotations.*;
 import com.dynamero.jilibs.events.BlockBreakCallback;
 import com.dynamero.jilibs.events.LivingDamageCallback;
 import com.dynamero.jilibs.events.PlayerDimensionChangeCallback;
 import com.dynamero.jilibs.platform.services.events.IEventService;
-
-import com.dynamero.jilibs.contracts.annotations.*;
 @Developer("TheMentor")
 @CreatedAt("2026-10-18")
 @ModifiedAt("2026-10-18")

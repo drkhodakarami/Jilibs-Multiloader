@@ -25,10 +25,10 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
 import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.contracts.records.ModBlock;
 import com.dynamero.jilibs.interfaces.factories.IBlockItemFactory;
 import com.dynamero.jilibs.platform.Services;
 import com.dynamero.jilibs.platform.services.registrars.utils.handles.BlockHandle;
-import com.dynamero.jilibs.contracts.records.ModBlock;
 
 /**
  * Provides utility methods for registering block items in Minecraft.

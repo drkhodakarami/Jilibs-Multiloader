@@ -20,8 +20,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
-import com.dynamero.jilibs.client.BlockEntityScreen;
 import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.interfaces.BlockEntityMenu;
 
 /**
  * Abstract base block entity with screen/container menu integration.
@@ -39,7 +39,7 @@ import com.dynamero.jilibs.contracts.annotations.*;
 @Discord("https://discord.gg/pmM4emCbuH")
 @Youtube("https://www.youtube.com/@TheMentorCodeLab")
 @Modrinth("https://modrinth.com/user/jiraiyah")
-public abstract class AbstractScreenBE<T extends AbstractScreenBE<T, B>, B> extends AbstractBaseBE<T> implements BlockEntityScreen<B>
+public abstract class AbstractScreenBE<T extends AbstractScreenBE<T, B>, B> extends AbstractBaseBE<T> implements BlockEntityMenu<B>
 {
     /**
      * Constructs a new AbstractScreenBE with the specified block entity type, position, and state.

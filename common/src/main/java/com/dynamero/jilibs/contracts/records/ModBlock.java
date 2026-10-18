@@ -16,12 +16,12 @@
 
 package com.dynamero.jilibs.contracts.records;
 
-import com.dynamero.jilibs.platform.services.registrars.utils.handles.BlockHandle;
-import com.dynamero.jilibs.platform.services.registrars.utils.handles.ItemHandle;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 
 import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.platform.services.registrars.utils.handles.BlockHandle;
+import com.dynamero.jilibs.platform.services.registrars.utils.handles.ItemHandle;
 @Developer("TheMentor")
 @CreatedAt("2026-10-18")
 @ModifiedAt("2026-10-18")

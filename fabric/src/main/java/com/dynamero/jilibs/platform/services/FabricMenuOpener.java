@@ -1,12 +1,28 @@
+/*
+ * Copyright (c) 2026 Alireza Khodakarami
+ *
+ * Licensed under the LPGL-3.0, (read the "LICENSE" file in repo);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.gnu.org/licenses/lgpl-3.0.en.html
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.dynamero.jilibs.platform.services;
 
-import com.dynamero.jilibs.client.ExtendedMenuType;
-import com.dynamero.jilibs.client.interfaces.ExtendedMenuProvider;
-import com.dynamero.jilibs.client.interfaces.ServerMenuFactory;
-import com.dynamero.jilibs.network.IntegerPayload;
-import com.dynamero.jilibs.platform.services.registrars.utils.ExtendedMenuFactory;
-import com.dynamero.jilibs.platform.services.registrars.utils.handles.MenuTypeHandle;
-import com.dynamero.jilibs.utils.BaseHelper;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.OptionalInt;
+
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -21,12 +37,14 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
-import org.jspecify.annotations.NonNull;
-import org.jspecify.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.OptionalInt;
+import com.dynamero.jilibs.client.ExtendedMenuType;
+import com.dynamero.jilibs.client.interfaces.ExtendedMenuProvider;
+import com.dynamero.jilibs.client.interfaces.ServerMenuFactory;
+import com.dynamero.jilibs.network.IntegerPayload;
+import com.dynamero.jilibs.platform.services.registrars.utils.ExtendedMenuFactory;
+import com.dynamero.jilibs.platform.services.registrars.utils.handles.MenuTypeHandle;
+import com.dynamero.jilibs.utils.BaseHelper;
 
 @SuppressWarnings("unused")
 public class FabricMenuOpener implements IMenuService

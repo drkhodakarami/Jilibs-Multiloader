@@ -16,8 +16,9 @@
 
 package com.dynamero.jilibs.platform.services.registrars.utils.handles;
 
-import com.dynamero.jilibs.contracts.annotations.*;
 import net.minecraft.world.inventory.MenuType;
+
+import com.dynamero.jilibs.contracts.annotations.*;
 
 @Developer("TheMentor")
 @CreatedAt("2026-10-18")
