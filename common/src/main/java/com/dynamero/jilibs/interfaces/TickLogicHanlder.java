@@ -1,0 +1,55 @@
+/*
+ * Copyright (c) 2026 Alireza Khodakarami
+ *
+ * Licensed under the LPGL-3.0, (read the "LICENSE" file in repo);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.gnu.org/licenses/lgpl-3.0.en.html
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.dynamero.jilibs.interfaces;
+
+import com.dynamero.jilibs.components.BEProperties;
+import com.dynamero.jilibs.components.BlockEntityFields;
+import com.dynamero.jilibs.contracts.annotations.*;
+import net.minecraft.world.level.block.entity.BlockEntity;
+
+/**
+ * Represents an interface for tick logic that can be executed on a block entity.
+ *
+ * @param <T> the type of the block entity
+ * @param <U> the type of the block entity fields
+ */
+@SuppressWarnings("unused")
+@Developer("TheMentor")
+@CreatedAt("2026-10-08")
+@ModifiedAt("2026-10-18")
+@ModifiedBy("TheMentor")
+@Website("https://dynamero.com")
+@Repository("https://github.com/drkhodakarami/")
+@Discord("https://discord.gg/pmM4emCbuH")
+@Youtube("https://www.youtube.com/@TheMentorCodeLab")
+@Modrinth("https://modrinth.com/user/jiraiyah")
+public interface TickLogicHanlder<T extends BlockEntity, U extends BlockEntityFields<T>>
+{
+    /**
+     * Executes the tick logic for the given block entity properties on the server side.
+     *
+     * @param properties the block entity properties
+     */
+    void tick(BEProperties<T> properties);
+
+    /**
+     * Executes any client-specific tick logic for the given block entity properties (default implementation does nothing).
+     *
+     * @param properties the block entity properties
+     */
+    default void tickClient(BEProperties<T> properties){}
+}

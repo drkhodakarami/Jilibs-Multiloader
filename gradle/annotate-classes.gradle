@@ -1,0 +1,189 @@
+import java.nio.file.Files
+import java.nio.file.attribute.BasicFileAttributes
+import java.time.LocalDate
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+
+tasks.register('annotations') {
+    group = 'build'
+    description = 'Applies and updates standard class header annotations across all Java files without duplication.'
+
+    doLast {
+        allprojects.each { proj ->
+            def srcDir = proj.file("src/main/java")
+            if (srcDir.exists()) {
+                proj.fileTree(dir: srcDir, include: '**/*.java').each { file ->
+                    processJavaFile(file)
+                }
+            }
+        }
+    }
+}
+
+void processJavaFile(File file) {
+    if (file.name == 'package-info.java' || file.name == 'module-info.java') {
+        return
+    }
+
+    String raw = file.getText('UTF-8')
+    boolean isCrlf = raw.contains('\r\n')
+    String text = raw.replace('\r\n', '\n')
+
+    // Read file system attributes
+    BasicFileAttributes attrs = Files.readAttributes(file.toPath(), BasicFileAttributes.class)
+
+    // Creation date (birth time)
+    LocalDate creationDate = attrs.creationTime().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
+    String formattedCreateDate = creationDate.format(DateTimeFormatter.ISO_LOCAL_DATE)
+
+    // Last modification date
+    LocalDate modDate = attrs.lastModifiedTime().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
+    String formattedModDate = modDate.format(DateTimeFormatter.ISO_LOCAL_DATE)
+
+    // Ensure the annotation import is present
+    String requiredImport = 'import com.dynamero.jilibs.contracts.annotations.*;'
+    Pattern importPattern = Pattern.compile(/(?m)^[ \t]*import\s+com\.dynamero\.jilibs\.contracts\.annotations\.\*;\s*$/)
+
+    if (!importPattern.matcher(text).find()) {
+        // Find the last existing import to append after
+        Pattern lastImportPattern = Pattern.compile(/(?m)^[ \t]*import\s+[^;]+;\s*$/)
+        Matcher lastImportMatcher = lastImportPattern.matcher(text)
+        int lastImportEnd = -1
+
+        while (lastImportMatcher.find()) {
+            lastImportEnd = lastImportMatcher.end()
+        }
+
+        if (lastImportEnd != -1) {
+            // Insert immediately after the last import
+            text = text.substring(0, lastImportEnd) + "\n" + requiredImport + text.substring(lastImportEnd)
+        } else {
+            // No imports found; try placing it right after the package statement
+            Pattern pkgPattern = Pattern.compile(/(?m)^[ \t]*package\s+[^;]+;\s*$/)
+            Matcher pkgMatcher = pkgPattern.matcher(text)
+            if (pkgMatcher.find()) {
+                int pkgEnd = pkgMatcher.end()
+                text = text.substring(0, pkgEnd) + "\n\n" + requiredImport + text.substring(pkgEnd)
+            } else {
+                // No package or imports found; prepend to the file
+                text = requiredImport + "\n\n" + text
+            }
+        }
+    }
+
+    def targetKeys = [
+            'Developer', 'CreatedAt', 'ModifiedAt', 'ModifiedBy',
+            'Website', 'Repository', 'Discord', 'Youtube', 'Modrinth'
+    ]
+
+    def defaults = [
+            'Developer' : '"TheMentor"',
+            'CreatedAt' : "\"${formattedCreateDate}\"",
+            'ModifiedAt': "\"${formattedModDate}\"",
+            'ModifiedBy': '"TheMentor"',
+            'Website'   : '"https://dynamero.com"',
+            'Repository': '"https://github.com/drkhodakarami/"',
+            'Discord'   : '"https://discord.gg/pmM4emCbuH"',
+            'Youtube'   : '"https://www.youtube.com/@TheMentorCodeLab"',
+            'Modrinth'  : '"https://modrinth.com/user/jiraiyah"'
+    ]
+
+    // 1. Find the top-level type declaration keyword (class, interface, enum, record, @interface)
+    Pattern typeKeywordPattern = Pattern.compile(/(?m)^[ \t]*(?:public\s+|protected\s+|private\s+|abstract\s+|final\s+|sealed\s+|non-sealed\s+|static\s+)*(class|interface|enum|record|@interface)\s+([A-Za-z0-9_]+)/)
+    Matcher typeMatcher = typeKeywordPattern.matcher(text)
+
+    if (!typeMatcher.find()) {
+        println "[SKIP] No class declaration: ${file.name}"
+        return
+    }
+
+    int typeKeywordStart = typeMatcher.start()
+    String postType = text.substring(typeKeywordStart)
+
+    // 2. Separate package/imports/comments from the annotation zone directly above the class.
+    int annotationZoneStart = typeKeywordStart
+    int idx = typeKeywordStart - 1
+
+    while (idx >= 0) {
+        while (idx >= 0 && Character.isWhitespace(text.charAt(idx))) {
+            idx--
+        }
+        if (idx < 0) break
+
+        int lineStart = text.lastIndexOf('\n', idx) + 1
+        String lineContent = text.substring(lineStart, idx + 1).trim()
+
+        if (lineContent.startsWith('@') || lineContent.startsWith('*') || lineContent.startsWith('/*')) {
+            if (lineContent.startsWith('@')) {
+                annotationZoneStart = lineStart
+                idx = lineStart - 1
+            } else {
+                // Hit Javadoc/comment or import/package boundary
+                break
+            }
+        } else {
+            // Found non-annotation code (e.g. ';' from import/package)
+            break
+        }
+    }
+
+    String fileBoilerplate = text.substring(0, annotationZoneStart)
+    String rawAnnotationZone = text.substring(annotationZoneStart, typeKeywordStart)
+
+    // 3. Tokenize all annotations in the annotation zone
+    List<String> arbitraryAnnotations = []
+    Map<String, String> preservedValues = [:]
+
+    Matcher annMatcher = Pattern.compile(/@([A-Za-z0-9_]+)(\s*\((?:[^()]*|\((?:[^()]*|\([^()]*\))*\))*\))?/).matcher(rawAnnotationZone)
+    while (annMatcher.find()) {
+        String annName = annMatcher.group(1)
+        String annFull = annMatcher.group(0).trim()
+
+        if (targetKeys.contains(annName)) {
+            Matcher valMatch = Pattern.compile(/\(\s*(?:value\s*=\s*)?(".*?")\s*\)/).matcher(annFull)
+            if (valMatch.find()) {
+                preservedValues[annName] = valMatch.group(1)
+            }
+        } else {
+            arbitraryAnnotations.add(annFull)
+        }
+    }
+
+    // 4. Build our clean metadata block
+    StringBuilder metadataBlock = new StringBuilder()
+    targetKeys.each { key ->
+        String val = defaults[key]
+        if (key == 'ModifiedAt') {
+            val = "\"${formattedModDate}\""
+        } else if (key == 'CreatedAt' && preservedValues.containsKey('CreatedAt')) {
+            val = preservedValues['CreatedAt']
+        } else if (key == 'Developer') {
+            def cur = preservedValues['Developer']
+            val = (cur && cur != '"TurtyWurty"') ? cur : '"TheMentor"'
+        } else if (preservedValues.containsKey(key)) {
+            val = preservedValues[key]
+        }
+        metadataBlock.append("@${key}(${val})\n")
+    }
+
+    // 5. Reassemble cleanly
+    StringBuilder finalBuffer = new StringBuilder()
+    finalBuffer.append(fileBoilerplate.replaceAll(/[ \t\n]+$/, '\n'))
+
+    arbitraryAnnotations.each { ann ->
+        finalBuffer.append(ann).append('\n')
+    }
+
+    finalBuffer.append(metadataBlock.toString())
+    finalBuffer.append(postType)
+
+    String result = finalBuffer.toString()
+    if (isCrlf) {
+        result = result.replace('\n', '\r\n')
+    }
+
+    file.setText(result, 'UTF-8')
+    println "[SUCCESS] Processed: ${file.name}"
+}

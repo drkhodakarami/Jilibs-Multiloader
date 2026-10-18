@@ -1,0 +1,69 @@
+/*
+ * Copyright (c) 2026 Alireza Khodakarami
+ *
+ * Licensed under the LPGL-3.0, (read the "LICENSE" file in repo);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.gnu.org/licenses/lgpl-3.0.en.html
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.dynamero.jilibs.contracts.functions;
+
+import com.dynamero.jilibs.contracts.annotations.*;
+
+import java.util.Objects;
+
+/**
+ * Represents an operation that accepts four input arguments and returns no result.
+ *
+ * @param <T> the type of the first argument
+ * @param <U> the type of the second argument
+ * @param <V> the type of the third argument
+ * @param <W> the type of the fourth argument
+ */
+@SuppressWarnings("unused")
+@FunctionalInterface
+@Developer("TheMentor")
+@CreatedAt("2026-10-08")
+@ModifiedAt("2026-10-18")
+@ModifiedBy("TheMentor")
+@Website("https://dynamero.com")
+@Repository("https://github.com/drkhodakarami/")
+@Discord("https://discord.gg/pmM4emCbuH")
+@Youtube("https://www.youtube.com/@TheMentorCodeLab")
+@Modrinth("https://modrinth.com/user/jiraiyah")
+public interface Consumer4<T, U, V, W>
+{
+    /**
+     * Performs this operation on the given arguments.
+     *
+     * @param t the first argument
+     * @param u the second argument
+     * @param v the third argument
+     * @param w the fourth argument
+     */
+    void accept(T t, U u, V v, W w);
+
+    /**
+     * Returns a composed {@code TetraConsumer} that performs, in sequence, this operation and another operation.
+     *
+     * @param after the operation to perform after this operation
+     * @return a composed {@code TetraConsumer} that performs, in sequence, this operation and another operation
+     * @throws NullPointerException if {@code after} is null
+     */
+    default Consumer4<T, U, V, W> andThen(Consumer4<? super T, ? super U, ? super V, ? super W> after) {
+        Objects.requireNonNull(after);
+
+        return (t, u, v, w) -> {
+            accept(t, u, v, w);
+            after.accept(t, u, v, w);
+        };
+    }
+}

@@ -13,17 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.dynamero.jilibs;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import com.dynamero.jilibs.contracts.annotations.*;
+@Developer("TheMentor")
+@CreatedAt("2026-10-17")
+@ModifiedAt("2026-10-18")
+@ModifiedBy("TheMentor")
+@Website("https://dynamero.com")
+@Repository("https://github.com/drkhodakarami/")
+@Discord("https://discord.gg/pmM4emCbuH")
+@Youtube("https://www.youtube.com/@TheMentorCodeLab")
+@Modrinth("https://modrinth.com/user/jiraiyah")
 public class JilibsConstants
 {
 
     public static final String MODID = "jilibs";
     public static final String MOD_NAME = "Jilibs";
 
-    public static final Logger LOG = LoggerFactory.getLogger(MOD_NAME);
+    public static final String CREATIVE_TAB_PREFIX = "itemGroup";
 }

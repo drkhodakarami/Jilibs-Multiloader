@@ -1,0 +1,104 @@
+/*
+ * Copyright (c) 2026 Alireza Khodakarami
+ *
+ * Licensed under the LPGL-3.0, (read the "LICENSE" file in repo);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.gnu.org/licenses/lgpl-3.0.en.html
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.dynamero.jilibs.data;
+
+import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.constants.enumerations.RedstoneMode;
+
+import java.util.Objects;
+
+/**
+ * Represents the data related to redstone control in the JustDireThings mod.
+ */
+@SuppressWarnings("unused")
+@Developer("Direwolf20")
+@CreatedAt("2026-10-08")
+@ModifiedAt("2026-10-18")
+@ModifiedBy("TheMentor")
+@Website("https://dynamero.com")
+@Repository("https://github.com/drkhodakarami/")
+@Discord("https://discord.gg/pmM4emCbuH")
+@Youtube("https://www.youtube.com/@TheMentorCodeLab")
+@Modrinth("https://modrinth.com/user/jiraiyah")
+public class RedstoneControlData
+{
+    /**
+     * Indicates whether the block is currently receiving redstone power.
+     */
+    public boolean receivingRedstone = false;
+
+    /**
+     * Indicates whether the redstone signal has been checked.
+     */
+    public boolean checkedRedstone = false;
+
+    /**
+     * Indicates whether a pulse has occurred.
+     */
+    public boolean pulsed = false;
+
+    /**
+     * The current mode of redstone handling.
+     *
+     * @see RedstoneMode
+     */
+    public RedstoneMode redstoneMode = RedstoneMode.IGNORED;
+
+    /**
+     * Default constructor for the RedstoneControlData class.
+     */
+    public RedstoneControlData() {}
+
+    /**
+     * Constructor for the RedstoneControlData class that initializes the redstone mode.
+     *
+     * @param redstoneMode The initial mode of redstone handling.
+     * @see RedstoneMode
+     */
+    public RedstoneControlData(RedstoneMode redstoneMode)
+    {
+        this.redstoneMode = redstoneMode;
+    }
+
+    /**
+     * Generates a hash code based on the object's state.
+     *
+     * @return The computed hash code.
+     */
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(receivingRedstone, pulsed, redstoneMode);
+    }
+
+    /**
+     * Compares this object with another for equality.
+     *
+     * @param obj The object to compare with.
+     * @return true if the objects are equal, false otherwise.
+     */
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        RedstoneControlData that = (RedstoneControlData) obj;
+        return receivingRedstone == that.receivingRedstone &&
+                pulsed == that.pulsed &&
+                redstoneMode == that.redstoneMode;
+    }
+}

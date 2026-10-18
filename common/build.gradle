@@ -7,10 +7,8 @@ plugins {
 apply from: '../gradle/common.gradle'
 apply from: '../gradle/general.gradle'
 
-def prp = props.load('dependencies')
-
 neoForge {
-    neoFormVersion = prp.neo_form_version
+    neoFormVersion = props.neo_form_version
     def at = file('src/main/resources/META-INF/accesstransformer.cfg')
     if (at.exists()) {
         accessTransformers.from(at.absolutePath)
@@ -32,8 +30,8 @@ def syncCommonResources = tasks.register('syncCommonResources', Sync) {
 evaluationDependsOn(':neoforge')
 
 dependencies {
-    compileOnly("net.fabricmc:sponge-mixin:${prp.spongepowered_version}+mixin.${prp.spongepowered_meta_version}")
-    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:${prp.mixinextras_version}"))
+    compileOnly("net.fabricmc:sponge-mixin:${props.spongepowered_version}+mixin.${props.spongepowered_meta_version}")
+    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:${props.mixinextras_version}"))
 }
 
 configurations {

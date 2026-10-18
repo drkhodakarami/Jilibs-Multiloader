@@ -8,6 +8,7 @@ plugins {
     id 'maven-publish'
 }
 
+apply from: './gradle/annotate-classes.gradle'
 apply from: './gradle/docs/javaDocs.gradle'
 apply from: './gradle/git-versioning.gradle'
 apply from: './gradle/run-all-clients-task.gradle'

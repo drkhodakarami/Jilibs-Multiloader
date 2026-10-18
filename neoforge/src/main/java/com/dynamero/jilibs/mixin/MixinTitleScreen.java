@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.dynamero.jilibs.mixin;
 
 import org.spongepowered.asm.mixin.Mixin;
@@ -25,8 +24,17 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.TitleScreen;
 
 import com.dynamero.jilibs.JilibsConstants;
-
+import com.dynamero.jilibs.contracts.annotations.*;
 @Mixin(TitleScreen.class)
+@Developer("TheMentor")
+@CreatedAt("2026-10-17")
+@ModifiedAt("2026-10-18")
+@ModifiedBy("TheMentor")
+@Website("https://dynamero.com")
+@Repository("https://github.com/drkhodakarami/")
+@Discord("https://discord.gg/pmM4emCbuH")
+@Youtube("https://www.youtube.com/@TheMentorCodeLab")
+@Modrinth("https://modrinth.com/user/jiraiyah")
 public class MixinTitleScreen {
 
     @Inject(at = @At("HEAD"), method = "init()V")
