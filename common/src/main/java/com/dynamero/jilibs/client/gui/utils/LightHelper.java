@@ -16,11 +16,12 @@
 
 package com.dynamero.jilibs.client.gui.utils;
 
-import com.dynamero.jilibs.contracts.annotations.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.LightCoordsUtil;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
+
+import com.dynamero.jilibs.contracts.annotations.*;
 @SuppressWarnings("unused")
 @Developer("TheMentor")
 @CreatedAt("2026-10-08")

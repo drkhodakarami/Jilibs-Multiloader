@@ -16,11 +16,11 @@
 
 package com.dynamero.jilibs.blockentity;
 
-import com.dynamero.jilibs.components.BEProperties;
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.interfaces.SyncedTicking;
-import com.dynamero.jilibs.interfaces.Updatable;
 import com.mojang.logging.LogUtils;
+import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.Nullable;
+import org.slf4j.Logger;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -34,9 +34,11 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.TagValueOutput;
-import org.jetbrains.annotations.NotNull;
-import org.jspecify.annotations.Nullable;
-import org.slf4j.Logger;
+
+import com.dynamero.jilibs.components.BEProperties;
+import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.interfaces.SyncedTicking;
+import com.dynamero.jilibs.interfaces.Updatable;
 
 /**
  * Abstract base class for modded block entities providing synchronized ticking (server and client),

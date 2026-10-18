@@ -16,9 +16,12 @@
 
 package com.dynamero.jilibs.testworld;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.platform.Services;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+
 import com.mojang.authlib.GameProfile;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.MinecraftServer;
@@ -35,9 +38,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 
-import java.util.function.Consumer;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.platform.Services;
 @Developer("TheMentor")
 @CreatedAt("2026-10-10")
 @ModifiedAt("2026-10-18")

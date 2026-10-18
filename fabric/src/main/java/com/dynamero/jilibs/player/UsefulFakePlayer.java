@@ -16,16 +16,18 @@
 
 package com.dynamero.jilibs.player;
 
-import com.dynamero.jilibs.contracts.annotations.*;
 import com.mojang.authlib.GameProfile;
 import net.fabricmc.fabric.api.entity.FakePlayer;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemCooldowns;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.portal.TeleportTransition;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Extends the Fabric API's FakePlayer to provide additional useful methods and behavior.

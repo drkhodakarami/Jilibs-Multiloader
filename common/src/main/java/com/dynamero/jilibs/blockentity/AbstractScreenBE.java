@@ -16,11 +16,12 @@
 
 package com.dynamero.jilibs.blockentity;
 
-import com.dynamero.jilibs.client.BlockEntityScreen;
-import com.dynamero.jilibs.contracts.annotations.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+
+import com.dynamero.jilibs.client.BlockEntityScreen;
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Abstract base block entity with screen/container menu integration.

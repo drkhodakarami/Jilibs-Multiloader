@@ -16,10 +16,11 @@
 
 package com.dynamero.jilibs.interfaces;
 
+import net.minecraft.world.level.block.entity.BlockEntity;
+
 import com.dynamero.jilibs.components.BEProperties;
 import com.dynamero.jilibs.components.BlockEntityFields;
 import com.dynamero.jilibs.contracts.annotations.*;
-import net.minecraft.world.level.block.entity.BlockEntity;
 
 /**
  * Represents an interface for tick logic that can be executed on a block entity.

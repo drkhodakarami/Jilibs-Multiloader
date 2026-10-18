@@ -16,10 +16,10 @@
 
 package com.dynamero.jilibs.data;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.constants.enumerations.RedstoneMode;
-
 import java.util.Objects;
+
+import com.dynamero.jilibs.constants.enumerations.RedstoneMode;
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Represents the data related to redstone control in the JustDireThings mod.

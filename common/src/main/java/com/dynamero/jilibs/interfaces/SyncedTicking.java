@@ -16,9 +16,9 @@
 
 package com.dynamero.jilibs.interfaces;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-
 import java.util.List;
+
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Represents an interface for entities that require synchronized ticks and can be synced.

@@ -16,11 +16,13 @@
 
 package com.dynamero.jilibs.components;
 
+import org.jetbrains.annotations.Nullable;
+
+import net.minecraft.world.level.block.entity.BlockEntity;
+
 import com.dynamero.jilibs.contracts.annotations.*;
 import com.dynamero.jilibs.interfaces.FieldGetter;
 import com.dynamero.jilibs.interfaces.FieldSetter;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Represents a single field in a BlockEntity, including its value and optional getter and setter methods.

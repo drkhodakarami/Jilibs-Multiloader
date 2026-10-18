@@ -16,11 +16,12 @@
 
 package com.dynamero.jilibs.contracts;
 
-import com.dynamero.jilibs.constants.LoggerConstants;
-import com.dynamero.jilibs.contracts.annotations.*;
+import static net.minecraft.ChatFormatting.RESET;
+
 import org.slf4j.LoggerFactory;
 
-import static net.minecraft.ChatFormatting.RESET;
+import com.dynamero.jilibs.constants.LoggerConstants;
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Provides a logging utility for mod development in Minecraft using SLF4J.

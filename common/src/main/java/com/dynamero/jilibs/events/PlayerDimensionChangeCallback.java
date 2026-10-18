@@ -16,9 +16,10 @@
 
 package com.dynamero.jilibs.events;
 
-import com.dynamero.jilibs.contracts.annotations.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Runs after a server player has entered a different dimension.

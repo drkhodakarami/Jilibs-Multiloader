@@ -16,13 +16,10 @@
 
 package com.dynamero.jilibs.block;
 
-import com.dynamero.jilibs.blockentity.AbstractBaseBE;
-import com.dynamero.jilibs.client.BlockEntityScreen;
-import com.dynamero.jilibs.components.BlockProperties;
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.interfaces.TickProvider;
-import com.dynamero.jilibs.interfaces.Ticking;
-import com.dynamero.jilibs.interfaces.WrenchHandler;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -49,9 +46,14 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-import org.jspecify.annotations.NonNull;
+
+import com.dynamero.jilibs.blockentity.AbstractBaseBE;
+import com.dynamero.jilibs.client.BlockEntityScreen;
+import com.dynamero.jilibs.components.BlockProperties;
+import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.interfaces.TickProvider;
+import com.dynamero.jilibs.interfaces.Ticking;
+import com.dynamero.jilibs.interfaces.WrenchHandler;
 
 /**
  * Abstract base class for modded blocks supporting block entities, tick logic,

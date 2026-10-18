@@ -16,8 +16,9 @@
 
 package com.dynamero.jilibs.utils;
 
-import com.dynamero.jilibs.contracts.annotations.*;
 import net.minecraft.world.entity.player.Player;
+
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Provides utility methods for experience (XP) calculations and management in Minecraft.

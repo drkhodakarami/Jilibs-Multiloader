@@ -16,9 +16,6 @@
 
 package com.dynamero.jilibs.config;
 
-import com.dynamero.jilibs.contracts.Logger;
-import com.dynamero.jilibs.contracts.annotations.*;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
@@ -26,6 +23,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Scanner;
+
+import com.dynamero.jilibs.contracts.Logger;
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Provides a base configuration management system for Minecraft mods using Fabric API.

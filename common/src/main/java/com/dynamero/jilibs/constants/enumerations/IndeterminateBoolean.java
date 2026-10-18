@@ -16,9 +16,9 @@
 
 package com.dynamero.jilibs.constants.enumerations;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-
 import java.util.function.BooleanSupplier;
+
+import com.dynamero.jilibs.contracts.annotations.*;
 @SuppressWarnings("unused")
 @Developer("TheMentor")
 @CreatedAt("2026-10-08")

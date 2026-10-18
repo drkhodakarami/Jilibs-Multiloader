@@ -16,9 +16,11 @@
 
 package com.dynamero.jilibs.client.gui;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.data.CachedBlockEntity;
-import com.dynamero.jilibs.network.BlockPosPayload;
+import java.util.List;
+import java.util.Objects;
+
+import org.jetbrains.annotations.NotNull;
+
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -29,10 +31,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
-import java.util.Objects;
+import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.data.CachedBlockEntity;
+import com.dynamero.jilibs.network.BlockPosPayload;
 @SuppressWarnings("unused")
 @Developer("TheMentor")
 @CreatedAt("2026-10-08")

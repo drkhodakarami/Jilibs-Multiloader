@@ -17,8 +17,9 @@
 package com.dynamero.jilibs.client.gui.records;
 
 
-import com.dynamero.jilibs.contracts.annotations.*;
 import net.minecraft.resources.Identifier;
+
+import com.dynamero.jilibs.contracts.annotations.*;
 @Developer("TheMentor")
 @CreatedAt("2026-10-08")
 @ModifiedAt("2026-10-18")

@@ -16,13 +16,14 @@
 
 package com.dynamero.jilibs.components;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import net.minecraft.world.level.block.entity.BlockEntity;
+
 import com.dynamero.jilibs.contracts.annotations.*;
 import com.dynamero.jilibs.interfaces.FieldGetter;
 import com.dynamero.jilibs.interfaces.FieldSetter;
-import net.minecraft.world.level.block.entity.BlockEntity;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Manages a collection of fields associated with a BlockEntity.

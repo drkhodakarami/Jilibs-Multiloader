@@ -16,10 +16,11 @@
 
 package com.dynamero.jilibs.utils;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.interfaces.DataSerializer;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
+
+import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.interfaces.DataSerializer;
 @Developer("TheMentor")
 @CreatedAt("2026-10-08")
 @ModifiedAt("2026-10-18")

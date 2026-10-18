@@ -16,10 +16,11 @@
 
 package com.dynamero.jilibs.interfaces;
 
-import com.dynamero.jilibs.contracts.annotations.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Represents a factory for creating block entity instances.

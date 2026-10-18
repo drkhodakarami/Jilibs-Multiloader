@@ -16,13 +16,13 @@
 
 package com.dynamero.jilibs.components;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.interfaces.BaseComponent;
-import com.dynamero.jilibs.interfaces.BaseComponentConsumer;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
+
+import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.interfaces.BaseComponent;
+import com.dynamero.jilibs.interfaces.BaseComponentConsumer;
 
 /**
  * A container that holds and manages components of type {@link BaseComponent}.

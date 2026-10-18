@@ -16,10 +16,14 @@
 
 package com.dynamero.jilibs.network;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.utils.MathHelper;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Predicate;
+
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import org.jetbrains.annotations.NotNull;
+
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.core.registries.Registries;
@@ -33,11 +37,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.display.SlotDisplay;
-import org.jetbrains.annotations.NotNull;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.function.Predicate;
+import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.utils.MathHelper;
 
 /**
  * Represents a configured ingredient, combining an item list and stack data payload.

@@ -16,10 +16,11 @@
 
 package com.dynamero.jilibs.client.gui.constants;
 
+import net.minecraft.resources.Identifier;
+
 import com.dynamero.jilibs.client.gui.records.TextureData;
 import com.dynamero.jilibs.contracts.annotations.*;
 import com.dynamero.jilibs.utils.BaseHelper;
-import net.minecraft.resources.Identifier;
 @SuppressWarnings("unused")
 @Developer("TheMentor")
 @CreatedAt("2026-10-08")

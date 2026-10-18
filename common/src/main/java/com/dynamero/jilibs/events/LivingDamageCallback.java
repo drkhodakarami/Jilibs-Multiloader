@@ -16,9 +16,10 @@
 
 package com.dynamero.jilibs.events;
 
-import com.dynamero.jilibs.contracts.annotations.*;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
+
+import com.dynamero.jilibs.contracts.annotations.*;
 @FunctionalInterface
 @Developer("TheMentor")
 @CreatedAt("2026-10-10")

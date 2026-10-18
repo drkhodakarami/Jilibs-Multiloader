@@ -16,13 +16,14 @@
 
 package com.dynamero.jilibs.utils;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.contracts.exceptions.Exceptions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
+
+import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.contracts.exceptions.Exceptions;
 
 /**
  * Provides utility methods for position-related operations in Minecraft.

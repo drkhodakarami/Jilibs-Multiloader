@@ -16,9 +16,10 @@
 
 package com.dynamero.jilibs.interfaces;
 
-import com.dynamero.jilibs.contracts.annotations.*;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
+
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Represents an interface for objects that can be serialized and deserialized to/from NBT data.

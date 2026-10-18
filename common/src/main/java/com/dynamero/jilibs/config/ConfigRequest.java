@@ -16,9 +16,9 @@
 
 package com.dynamero.jilibs.config;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-
 import java.io.File;
+
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Represents a configuration request for a mod.

@@ -16,11 +16,11 @@
 
 package com.dynamero.jilibs.utils;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Provides utility methods for string formatting and numerical conversion.

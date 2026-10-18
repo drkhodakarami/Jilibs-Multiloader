@@ -13,13 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.dynamero.jilibs;
+
+import java.util.List;
+
+import net.minecraft.world.level.levelgen.flat.FlatLayerInfo;
 
 import com.dynamero.jilibs.contracts.annotations.*;
 import com.dynamero.jilibs.testworld.client.TestWorldLauncher;
-import net.minecraft.world.level.levelgen.flat.FlatLayerInfo;
-
-import java.util.List;
 @Developer("TheMentor")
 @CreatedAt("2026-10-17")
 @ModifiedAt("2026-10-18")

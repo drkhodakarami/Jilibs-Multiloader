@@ -16,8 +16,9 @@
 
 package com.dynamero.jilibs.interfaces;
 
-import com.dynamero.jilibs.contracts.annotations.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
+
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Represents a functional interface for getting a value from a block entity.

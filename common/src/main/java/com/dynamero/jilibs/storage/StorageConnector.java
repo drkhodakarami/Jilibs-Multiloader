@@ -16,18 +16,19 @@
 
 package com.dynamero.jilibs.storage;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import net.minecraft.core.Direction;
+
 import com.dynamero.jilibs.constants.enumerations.MappedDirection;
 import com.dynamero.jilibs.contracts.annotations.*;
 import com.dynamero.jilibs.interfaces.DataSerializer;
 import com.dynamero.jilibs.interfaces.StorageHandler;
 import com.dynamero.jilibs.interfaces.StorageProvider;
 import com.dynamero.jilibs.utils.DirectionHelper;
-import net.minecraft.core.Direction;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Base abstract connector that manages storage instances mapped to block directions or faces.

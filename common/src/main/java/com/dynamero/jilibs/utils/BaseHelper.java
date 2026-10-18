@@ -16,10 +16,14 @@
 
 package com.dynamero.jilibs.utils;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.contracts.exceptions.Exceptions;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.MapCodec;
+import org.jetbrains.annotations.NotNull;
+
 import net.minecraft.advancements.triggers.CriterionTrigger;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
@@ -61,11 +65,9 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.chunk.status.ChunkStatus;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.saveddata.maps.MapDecorationType;
-import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.contracts.exceptions.Exceptions;
 
 /**
  * Provides utility methods for working with various Minecraft registries and identifiers.

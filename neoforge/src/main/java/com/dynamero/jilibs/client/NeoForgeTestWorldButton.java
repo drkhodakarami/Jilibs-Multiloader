@@ -16,17 +16,19 @@
 
 package com.dynamero.jilibs.client;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.contracts.exceptions.Exceptions;
-import com.dynamero.jilibs.testworld.client.TestWorldLauncher;
+import java.util.Comparator;
+import java.util.List;
+
+import net.neoforged.neoforge.client.event.ScreenEvent;
+
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.network.chat.Component;
-import net.neoforged.neoforge.client.event.ScreenEvent;
 
-import java.util.Comparator;
-import java.util.List;
+import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.contracts.exceptions.Exceptions;
+import com.dynamero.jilibs.testworld.client.TestWorldLauncher;
 @Developer("TheMentor")
 @CreatedAt("2026-10-10")
 @ModifiedAt("2026-10-18")

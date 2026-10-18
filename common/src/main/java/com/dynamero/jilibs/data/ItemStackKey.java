@@ -16,13 +16,14 @@
 
 package com.dynamero.jilibs.data;
 
-import com.dynamero.jilibs.contracts.annotations.*;
+import java.util.Objects;
+
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
-import java.util.Objects;
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Represents a key for an {@link ItemStack} that considers both the item and its data components.

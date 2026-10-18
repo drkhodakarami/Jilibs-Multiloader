@@ -16,10 +16,12 @@
 
 package com.dynamero.jilibs.interfaces;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.constants.enumerations.MappedDirection;
-import net.minecraft.core.Direction;
 import org.jetbrains.annotations.Nullable;
+
+import net.minecraft.core.Direction;
+
+import com.dynamero.jilibs.constants.enumerations.MappedDirection;
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Represents an interface for providing storage entities based on direction and facing.

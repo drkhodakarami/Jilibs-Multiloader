@@ -13,12 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.dynamero.jilibs;
 
 
+import com.dynamero.jilibs.contracts.annotations.*;
+import net.minecraft.SharedConstants;
 import net.neoforged.bus.api.IEventBus;
 
-import com.dynamero.jilibs.contracts.annotations.*;
 //@Mod(JilibsConstants.MOD_ID)
 @Developer("TheMentor")
 @CreatedAt("2026-10-18")
@@ -31,15 +33,10 @@ import com.dynamero.jilibs.contracts.annotations.*;
 @Modrinth("https://modrinth.com/user/jiraiyah")
 public class JilibsNeoForgeMain
 {
+    public JilibsNeoForgeMain(IEventBus eventBus)
+    {
+        SharedConstants.IS_RUNNING_IN_IDE = false;
 
-    public JilibsNeoForgeMain(IEventBus eventBus) {
-
-        // This method is invoked by the NeoForge mod loader when it is ready
-        // to load your mod. You can access NeoForge and Common code in this
-        // project.
-
-        // Use NeoForge to bootstrap the Common mod.
-        JilibsConstants.LOG.info("Hello NeoForge world!");
         JilibsCommonMain.init();
 
     }

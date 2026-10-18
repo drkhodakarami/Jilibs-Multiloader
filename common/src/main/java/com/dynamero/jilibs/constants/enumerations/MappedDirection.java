@@ -16,12 +16,13 @@
 
 package com.dynamero.jilibs.constants.enumerations;
 
-import com.dynamero.jilibs.contracts.annotations.*;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 
 import net.minecraft.core.Direction;
 import net.minecraft.util.Util;
+
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Enum representing mapped directions.

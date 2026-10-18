@@ -1,9 +1,26 @@
+/*
+ * Copyright (c) 2026 Alireza Khodakarami
+ *
+ * Licensed under the LPGL-3.0, (read the "LICENSE" file in repo);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.gnu.org/licenses/lgpl-3.0.en.html
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.dynamero.jilibs.platform.services;
 
-import com.dynamero.jilibs.platform.services.events.IClientEventService;
-import com.dynamero.jilibs.events.client.LevelRenderContext;
-import com.dynamero.jilibs.events.client.RenderStage;
-import com.dynamero.jilibs.events.client.TooltipCallback;
+import java.util.Objects;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientBlockEntityEvents;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLevelEvents;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -12,6 +29,7 @@ import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderEvents;
 import net.fabricmc.fabric.api.resource.v1.ResourceLoader;
+
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -20,10 +38,10 @@ import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.resources.PreparableReloadListener;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
-import java.util.Objects;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
+import com.dynamero.jilibs.client.events.LevelRenderContext;
+import com.dynamero.jilibs.client.events.RenderStage;
+import com.dynamero.jilibs.client.events.TooltipCallback;
+import com.dynamero.jilibs.platform.services.events.IClientEventService;
 
 public final class FabricClientEventService implements IClientEventService
 {

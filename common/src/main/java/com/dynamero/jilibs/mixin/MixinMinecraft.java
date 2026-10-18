@@ -13,15 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.dynamero.jilibs.mixin;
 
-import com.dynamero.jilibs.JilibsConstants;
-import com.dynamero.jilibs.contracts.annotations.*;
-import net.minecraft.client.Minecraft;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import net.minecraft.client.Minecraft;
+
+import com.dynamero.jilibs.contracts.annotations.*;
+
 @Mixin(Minecraft.class)
 @Developer("TheMentor")
 @CreatedAt("2026-10-17")
@@ -35,8 +38,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class MixinMinecraft {
 
     @Inject(at = @At("TAIL"), method = "<init>")
-    private void init(CallbackInfo info) {
-        JilibsConstants.LOG.info("This line is printed by an example mod common mixin!");
-        JilibsConstants.LOG.info("MC Version: {}", Minecraft.getInstance().getLaunchedVersion());
+    private void init(CallbackInfo info)
+    {
     }
 }

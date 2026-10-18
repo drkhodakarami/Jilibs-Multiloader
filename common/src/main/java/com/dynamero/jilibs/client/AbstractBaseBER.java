@@ -16,8 +16,13 @@
 
 package com.dynamero.jilibs.client;
 
-import com.dynamero.jilibs.contracts.annotations.*;
+import java.util.function.Supplier;
+
 import com.mojang.blaze3d.vertex.PoseStack;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
+
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
@@ -33,11 +38,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.phys.Vec3;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-import org.jspecify.annotations.NonNull;
 
-import java.util.function.Supplier;
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Base block entity renderer (BER) supporting item stack rendering and entity rendering

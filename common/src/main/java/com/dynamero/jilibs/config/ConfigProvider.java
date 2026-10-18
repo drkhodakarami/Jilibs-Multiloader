@@ -16,11 +16,12 @@
 
 package com.dynamero.jilibs.config;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.mojang.datafixers.util.Pair;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import com.mojang.datafixers.util.Pair;
+
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Provides a provider for managing configuration data.

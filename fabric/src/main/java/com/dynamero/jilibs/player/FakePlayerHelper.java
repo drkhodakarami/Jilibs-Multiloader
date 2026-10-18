@@ -16,7 +16,11 @@
 
 package com.dynamero.jilibs.player;
 
-import com.dynamero.jilibs.contracts.annotations.*;
+import java.util.List;
+import java.util.Optional;
+
+import org.jetbrains.annotations.Nullable;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.protocol.game.ServerboundPlayerActionPacket;
@@ -33,10 +37,8 @@ import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.*;
-import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
-import java.util.Optional;
+import com.dynamero.jilibs.contracts.annotations.*;
 
 @SuppressWarnings({"unused", "SameParameterValue"})
 @Developer("Direwolf20")

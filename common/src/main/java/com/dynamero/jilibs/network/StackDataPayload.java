@@ -16,18 +16,20 @@
 
 package com.dynamero.jilibs.network;
 
-import com.dynamero.jilibs.contracts.annotations.*;
+import java.util.List;
+
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import org.jetbrains.annotations.NotNull;
+
 import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.Identifier;
-import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Represents a custom payload containing stack data, including the count of items and component changes.

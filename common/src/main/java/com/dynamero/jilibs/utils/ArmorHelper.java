@@ -16,11 +16,12 @@
 
 package com.dynamero.jilibs.utils;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.contracts.exceptions.Exceptions;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.equipment.EquipmentAsset;
 import net.minecraft.world.item.equipment.EquipmentAssets;
+
+import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.contracts.exceptions.Exceptions;
 @SuppressWarnings("unused")
 @Developer("TheMentor")
 @CreatedAt("2026-10-08")

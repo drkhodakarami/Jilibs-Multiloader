@@ -16,7 +16,11 @@
 
 package com.dynamero.jilibs.block;
 
-import com.dynamero.jilibs.contracts.annotations.*;
+import java.util.OptionalInt;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ColorParticleOption;
@@ -39,10 +43,8 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
-import java.util.OptionalInt;
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Custom base leaves block supporting waterlogging, distance decay from logs,

@@ -16,13 +16,14 @@
 
 package com.dynamero.jilibs.utils;
 
-import com.dynamero.jilibs.contracts.annotations.*;
+import java.util.Optional;
+
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.phys.*;
 
-import java.util.Optional;
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Provides utility methods for physics-related operations in Minecraft.

@@ -16,9 +16,9 @@
 
 package com.dynamero.jilibs.contracts.functions;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-
 import java.util.Objects;
+
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Represents a functional interface that accepts eight arguments and returns no result.

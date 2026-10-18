@@ -16,11 +16,12 @@
 
 package com.dynamero.jilibs.data;
 
-import com.dynamero.jilibs.contracts.annotations.*;
+import java.util.Objects;
+
 import net.minecraft.core.Direction;
 import net.minecraft.world.phys.AABB;
 
-import java.util.Objects;
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * A class representing data for area-affecting abilities or mechanics.

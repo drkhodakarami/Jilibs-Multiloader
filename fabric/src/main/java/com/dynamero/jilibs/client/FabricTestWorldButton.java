@@ -16,14 +16,16 @@
 
 package com.dynamero.jilibs.client;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.contracts.exceptions.Exceptions;
-import com.dynamero.jilibs.testworld.client.TestWorldLauncher;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
 import net.fabricmc.fabric.api.client.screen.v1.Screens;
+
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.TitleScreen;
+
+import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.contracts.exceptions.Exceptions;
+import com.dynamero.jilibs.testworld.client.TestWorldLauncher;
 @Developer("TheMentor")
 @CreatedAt("2026-10-10")
 @ModifiedAt("2026-10-18")

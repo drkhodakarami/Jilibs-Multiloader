@@ -16,8 +16,9 @@
 
 package com.dynamero.jilibs.interfaces;
 
-import com.dynamero.jilibs.contracts.annotations.*;
 import net.minecraft.world.inventory.ContainerData;
+
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Represents an interface for providing property delegate information.

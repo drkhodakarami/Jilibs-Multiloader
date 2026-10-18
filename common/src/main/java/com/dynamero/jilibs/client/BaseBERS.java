@@ -16,11 +16,12 @@
 
 package com.dynamero.jilibs.client;
 
-import com.dynamero.jilibs.contracts.annotations.*;
 import net.minecraft.client.renderer.blockentity.state.BlockEntityRenderState;
 import net.minecraft.client.renderer.entity.state.EntityRenderState;
 import net.minecraft.client.renderer.item.ItemStackRenderState;
 import net.minecraft.world.level.Level;
+
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Base block entity render state (BERS) storing the level context, item render state,

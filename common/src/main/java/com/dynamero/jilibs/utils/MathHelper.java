@@ -16,11 +16,11 @@
 
 package com.dynamero.jilibs.utils;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.contracts.exceptions.Exceptions;
-
 import java.util.Random;
 import java.util.function.Predicate;
+
+import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.contracts.exceptions.Exceptions;
 
 /**
  * Provides utility methods for mathematical operations.

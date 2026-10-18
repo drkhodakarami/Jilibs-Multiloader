@@ -16,9 +16,14 @@
 
 package com.dynamero.jilibs.network;
 
-import com.dynamero.jilibs.contracts.annotations.*;
+import java.util.*;
+import java.util.function.Function;
+
 import com.mojang.datafixers.util.*;
 import io.netty.buffer.ByteBuf;
+import org.joml.Vector3d;
+import org.jspecify.annotations.NonNull;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.UUIDUtil;
 import net.minecraft.network.RegistryFriendlyByteBuf;
@@ -27,11 +32,8 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.util.random.Weighted;
 import net.minecraft.util.random.WeightedList;
 import net.minecraft.util.valueproviders.*;
-import org.joml.Vector3d;
-import org.jspecify.annotations.NonNull;
 
-import java.util.*;
-import java.util.function.Function;
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Provides packet codecs for various integer and float providers used in the game.

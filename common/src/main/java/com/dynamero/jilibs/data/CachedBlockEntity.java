@@ -16,14 +16,15 @@
 
 package com.dynamero.jilibs.data;
 
-import com.dynamero.jilibs.contracts.annotations.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.BiFunction;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.function.BiFunction;
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Provides a cached block entity for specific types.

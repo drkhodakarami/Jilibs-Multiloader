@@ -1,9 +1,25 @@
+/*
+ * Copyright (c) 2026 Alireza Khodakarami
+ *
+ * Licensed under the LPGL-3.0, (read the "LICENSE" file in repo);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.gnu.org/licenses/lgpl-3.0.en.html
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.dynamero.jilibs.platform.services;
 
-import com.dynamero.jilibs.events.BlockBreakCallback;
-import com.dynamero.jilibs.platform.services.events.IEventService;
-import com.dynamero.jilibs.events.LivingDamageCallback;
-import com.dynamero.jilibs.events.PlayerDimensionChangeCallback;
+import java.util.Objects;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+
 import com.mojang.brigadier.CommandDispatcher;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.entity.event.v1.ServerEntityLevelChangeEvents;
@@ -13,6 +29,7 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLevelEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
+
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
@@ -20,9 +37,10 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 
-import java.util.Objects;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
+import com.dynamero.jilibs.events.BlockBreakCallback;
+import com.dynamero.jilibs.events.LivingDamageCallback;
+import com.dynamero.jilibs.events.PlayerDimensionChangeCallback;
+import com.dynamero.jilibs.platform.services.events.IEventService;
 
 public final class FabricEventService implements IEventService
 {

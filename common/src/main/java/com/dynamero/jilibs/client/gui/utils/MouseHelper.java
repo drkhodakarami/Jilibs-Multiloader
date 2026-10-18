@@ -16,9 +16,10 @@
 
 package com.dynamero.jilibs.client.gui.utils;
 
+import net.minecraft.client.renderer.Rect2i;
+
 import com.dynamero.jilibs.contracts.annotations.*;
 import com.dynamero.jilibs.contracts.exceptions.Exceptions;
-import net.minecraft.client.renderer.Rect2i;
 
 /**
  * Utility class providing methods to determine if the mouse is over a specific area.

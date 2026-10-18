@@ -16,13 +16,14 @@
 
 package com.dynamero.jilibs.data;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-import net.minecraft.world.entity.Entity;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.WeakHashMap;
+
+import net.minecraft.world.entity.Entity;
+
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Class to manage filter data for entities and items.

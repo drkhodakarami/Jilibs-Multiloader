@@ -16,6 +16,17 @@
 
 package com.dynamero.jilibs.client.gui.widgets;
 
+import java.util.function.Consumer;
+import java.util.function.Supplier;
+
+import org.jetbrains.annotations.NotNull;
+
+import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.gui.components.AbstractWidget;
+import net.minecraft.client.gui.components.Renderable;
+import net.minecraft.client.gui.layouts.LayoutElement;
+import net.minecraft.resources.Identifier;
+
 import com.dynamero.jilibs.client.gui.constants.ProgressBarTextures;
 import com.dynamero.jilibs.client.gui.enumerations.WidgetDirection;
 import com.dynamero.jilibs.client.gui.enumerations.WidgetOrientation;
@@ -23,15 +34,6 @@ import com.dynamero.jilibs.client.gui.records.TextureData;
 import com.dynamero.jilibs.client.gui.utils.MenuHelper;
 import com.dynamero.jilibs.contracts.annotations.*;
 import com.dynamero.jilibs.utils.BaseHelper;
-import net.minecraft.client.gui.GuiGraphicsExtractor;
-import net.minecraft.client.gui.components.AbstractWidget;
-import net.minecraft.client.gui.components.Renderable;
-import net.minecraft.client.gui.layouts.LayoutElement;
-import net.minecraft.resources.Identifier;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.function.Consumer;
-import java.util.function.Supplier;
 @SuppressWarnings("unused")
 @Developer("TheMentor")
 @CreatedAt("2026-10-08")

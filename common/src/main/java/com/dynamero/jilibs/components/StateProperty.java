@@ -16,9 +16,11 @@
 
 package com.dynamero.jilibs.components;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-import net.minecraft.world.level.block.state.properties.Property;
 import org.jetbrains.annotations.NotNull;
+
+import net.minecraft.world.level.block.state.properties.Property;
+
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Represents a state property of a block, including its delegate Property and default value.

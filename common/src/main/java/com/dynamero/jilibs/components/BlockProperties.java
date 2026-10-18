@@ -16,12 +16,15 @@
 
 package com.dynamero.jilibs.components;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.interfaces.BlockEntityFactory;
-import com.dynamero.jilibs.interfaces.BlockEntityTickerFactory;
-import com.dynamero.jilibs.interfaces.ShapeFactory;
-import com.dynamero.jilibs.interfaces.Ticking;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.BiPredicate;
+import java.util.function.Supplier;
+
 import com.mojang.datafixers.util.Function4;
+import org.jetbrains.annotations.NotNull;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.StringRepresentable;
@@ -38,13 +41,12 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.NotNull;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.function.BiPredicate;
-import java.util.function.Supplier;
+import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.interfaces.BlockEntityFactory;
+import com.dynamero.jilibs.interfaces.BlockEntityTickerFactory;
+import com.dynamero.jilibs.interfaces.ShapeFactory;
+import com.dynamero.jilibs.interfaces.Ticking;
 
 /**
  * Represents properties and settings for a Minecraft block, including its behavior, render type, and state properties.

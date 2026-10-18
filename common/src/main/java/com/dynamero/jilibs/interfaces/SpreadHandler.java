@@ -16,11 +16,12 @@
 
 package com.dynamero.jilibs.interfaces;
 
-import com.dynamero.jilibs.contracts.annotations.*;
+import java.util.Set;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 
-import java.util.Set;
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Represents a spreadable storage interface that can distribute its contents to neighboring blocks.

@@ -16,19 +16,21 @@
 
 package com.dynamero.jilibs.network;
 
-import com.dynamero.jilibs.contracts.annotations.*;
+import java.util.List;
+import java.util.Objects;
+
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import org.jetbrains.annotations.NotNull;
+
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.InteractionHand;
-import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
-import java.util.Objects;
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Represents a custom payload containing a player hand (e.g., main hand, off hand).

@@ -16,11 +16,13 @@
 
 package com.dynamero.jilibs.client.gui.widgets;
 
-import com.dynamero.jilibs.client.gui.enumerations.WidgetDirection;
-import com.dynamero.jilibs.client.gui.enumerations.WidgetOrientation;
-import com.dynamero.jilibs.client.gui.utils.MouseHelper;
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.utils.StringHelper;
+import java.util.List;
+import java.util.Objects;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
+
+import org.jetbrains.annotations.NotNull;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -29,12 +31,12 @@ import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.layouts.LayoutElement;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.ARGB;
-import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
+import com.dynamero.jilibs.client.gui.enumerations.WidgetDirection;
+import com.dynamero.jilibs.client.gui.enumerations.WidgetOrientation;
+import com.dynamero.jilibs.client.gui.utils.MouseHelper;
+import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.utils.StringHelper;
 @SuppressWarnings("unused")
 @Developer("TheMentor")
 @CreatedAt("2026-10-08")

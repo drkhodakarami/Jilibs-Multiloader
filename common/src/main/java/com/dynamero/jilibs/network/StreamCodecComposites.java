@@ -16,12 +16,14 @@
 
 package com.dynamero.jilibs.network;
 
-import com.dynamero.jilibs.contracts.annotations.*;
+import java.util.function.Function;
+
 import com.mojang.datafixers.util.*;
-import net.minecraft.network.codec.StreamCodec;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.function.Function;
+import net.minecraft.network.codec.StreamCodec;
+
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Provides utility methods to create packet codecs for composites of various sizes.

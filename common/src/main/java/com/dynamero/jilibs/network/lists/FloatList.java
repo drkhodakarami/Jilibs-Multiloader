@@ -16,14 +16,16 @@
 
 package com.dynamero.jilibs.network.lists;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.network.FloatPayload;
+import java.util.List;
+
 import com.mojang.serialization.Codec;
+
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 
-import java.util.List;
+import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.network.FloatPayload;
 @SuppressWarnings("unused")
 @Developer("TheMentor")
 @CreatedAt("2026-10-08")

@@ -16,20 +16,22 @@
 
 package com.dynamero.jilibs.client.gui.widgets;
 
-import com.dynamero.jilibs.client.gui.constants.ToggleButtonTextures;
-import com.dynamero.jilibs.client.gui.records.TextureData;
-import com.dynamero.jilibs.client.gui.utils.MenuHelper;
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.utils.BaseHelper;
+import java.util.function.BiConsumer;
+
+import org.jetbrains.annotations.NotNull;
+
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.input.InputWithModifiers;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.ARGB;
-import org.jetbrains.annotations.NotNull;
 
-import java.util.function.BiConsumer;
+import com.dynamero.jilibs.client.gui.constants.ToggleButtonTextures;
+import com.dynamero.jilibs.client.gui.records.TextureData;
+import com.dynamero.jilibs.client.gui.utils.MenuHelper;
+import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.utils.BaseHelper;
 @SuppressWarnings("unused")
 @Developer("TheMentor")
 @CreatedAt("2026-10-08")

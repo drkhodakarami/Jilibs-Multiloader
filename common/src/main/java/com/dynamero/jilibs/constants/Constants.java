@@ -17,9 +17,10 @@
 package com.dynamero.jilibs.constants;
 
 
+import net.minecraft.core.Direction;
+
 import com.dynamero.jilibs.contracts.annotations.*;
 import com.dynamero.jilibs.contracts.exceptions.Exceptions;
-import net.minecraft.core.Direction;
 
 /**
  * A class containing various constants used throughout the project.

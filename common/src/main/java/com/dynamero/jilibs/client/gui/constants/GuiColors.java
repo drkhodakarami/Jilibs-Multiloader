@@ -16,8 +16,9 @@
 
 package com.dynamero.jilibs.client.gui.constants;
 
-import com.dynamero.jilibs.contracts.annotations.*;
 import net.minecraft.util.ARGB;
+
+import com.dynamero.jilibs.contracts.annotations.*;
 @SuppressWarnings("unused")
 @Developer("TheMentor")
 @CreatedAt("2026-10-08")

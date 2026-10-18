@@ -16,9 +16,10 @@
 
 package com.dynamero.jilibs.client.interfaces;
 
+import net.minecraft.server.level.ServerPlayer;
+
 import com.dynamero.jilibs.contracts.annotations.*;
 import com.dynamero.jilibs.events.Events;
-import net.minecraft.server.level.ServerPlayer;
 
 /**
  * Interface implemented by screen handlers (container menus) that require per-tick updates

@@ -13,10 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.dynamero.jilibs.platform.services;
 
-import com.dynamero.jilibs.contracts.annotations.*;
 import net.fabricmc.loader.api.FabricLoader;
+
+import com.dynamero.jilibs.contracts.annotations.*;
 @Developer("TheMentor")
 @CreatedAt("2026-10-17")
 @ModifiedAt("2026-10-18")

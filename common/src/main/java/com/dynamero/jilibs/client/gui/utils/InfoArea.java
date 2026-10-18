@@ -16,10 +16,11 @@
 
 package com.dynamero.jilibs.client.gui.utils;
 
-import com.dynamero.jilibs.contracts.annotations.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Rect2i;
 import net.minecraft.client.renderer.state.gui.GuiRenderState;
+
+import com.dynamero.jilibs.contracts.annotations.*;
 
 /**
  * Class representing an information area in the Minecraft client GUI.

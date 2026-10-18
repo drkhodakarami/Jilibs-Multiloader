@@ -16,8 +16,6 @@
 
 package com.dynamero.jilibs.testworld;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.events.Events;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
@@ -26,6 +24,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.storage.LevelData;
+
+import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.events.Events;
 @SuppressWarnings("resource")
 @Developer("TheMentor")
 @CreatedAt("2026-10-10")

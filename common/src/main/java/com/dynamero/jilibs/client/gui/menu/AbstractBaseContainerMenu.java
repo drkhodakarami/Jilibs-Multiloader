@@ -16,16 +16,18 @@
 
 package com.dynamero.jilibs.client.gui.menu;
 
-import com.dynamero.jilibs.client.gui.AbstractBaseContainerScreen;
-import com.dynamero.jilibs.client.gui.constants.ContainerBaseTextures;
-import com.dynamero.jilibs.client.gui.utils.MenuHelper;
-import com.dynamero.jilibs.contracts.annotations.*;
+import org.jetbrains.annotations.NotNull;
+
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import org.jetbrains.annotations.NotNull;
+
+import com.dynamero.jilibs.client.gui.AbstractBaseContainerScreen;
+import com.dynamero.jilibs.client.gui.constants.ContainerBaseTextures;
+import com.dynamero.jilibs.client.gui.utils.MenuHelper;
+import com.dynamero.jilibs.contracts.annotations.*;
 @SuppressWarnings("unused")
 @Developer("TheMentor")
 @CreatedAt("2026-10-08")

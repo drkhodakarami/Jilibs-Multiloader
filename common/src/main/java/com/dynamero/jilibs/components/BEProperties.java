@@ -16,10 +16,11 @@
 
 package com.dynamero.jilibs.components;
 
-import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.interfaces.TickLogicHanlder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
+
+import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.interfaces.TickLogicHanlder;
 
 /**
  * Represents properties and utilities for a BlockEntity.

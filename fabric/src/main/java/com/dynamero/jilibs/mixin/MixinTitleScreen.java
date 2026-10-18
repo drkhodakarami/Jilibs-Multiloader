@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.dynamero.jilibs.mixin;
 
 import org.spongepowered.asm.mixin.Mixin;
@@ -20,11 +21,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.TitleScreen;
 
-import com.dynamero.jilibs.JilibsConstants;
 import com.dynamero.jilibs.contracts.annotations.*;
+
 @Mixin(TitleScreen.class)
 @Developer("TheMentor")
 @CreatedAt("2026-10-17")
@@ -38,9 +38,7 @@ import com.dynamero.jilibs.contracts.annotations.*;
 public class MixinTitleScreen {
 
     @Inject(at = @At("HEAD"), method = "init()V")
-    private void init(CallbackInfo info) {
-
-        JilibsConstants.LOG.info("This line is printed by an example mod mixin from Fabric!");
-        JilibsConstants.LOG.info("MC Version: {}", Minecraft.getInstance().getLaunchedVersion());
+    private void init(CallbackInfo info)
+    {
     }
 }

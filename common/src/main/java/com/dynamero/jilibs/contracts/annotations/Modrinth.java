@@ -16,12 +16,11 @@
 
 package com.dynamero.jilibs.contracts.annotations;
 
+import static java.lang.annotation.ElementType.*;
+
 import java.lang.annotation.Documented;
 import java.lang.annotation.Target;
 
-import static java.lang.annotation.ElementType.*;
-
-import com.dynamero.jilibs.contracts.annotations.*;
 /**
  * Annotation to link a website page of the mod on Modrinth.
  *
