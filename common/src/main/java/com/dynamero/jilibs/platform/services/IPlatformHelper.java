@@ -17,6 +17,9 @@
 package com.dynamero.jilibs.platform.services;
 
 import com.dynamero.jilibs.contracts.annotations.*;
+
+import java.nio.file.Path;
+
 @Developer("TheMentor")
 @CreatedAt("2026-10-18")
 @ModifiedAt("2026-10-18")
@@ -59,4 +62,11 @@ public interface IPlatformHelper
     {
         return isDevelopmentEnvironment() ? "development" : "production";
     }
+
+    /**
+     * Gets the path to the game's configuration folder.
+     *
+     * @return Path pointing to the config directory.
+     */
+    Path getConfigDirectory();
 }

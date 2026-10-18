@@ -16,11 +16,14 @@
 
 package com.dynamero.jilibs;
 
+import com.dynamero.jilibs.platform.services.NeoForgeFlammableService;
+import com.dynamero.jilibs.platform.services.registrars.NeoForgeStrippableRegistrar;
 import net.neoforged.bus.api.IEventBus;
 
 import net.minecraft.SharedConstants;
 
 import com.dynamero.jilibs.contracts.annotations.*;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 
 //@Mod(JilibsConstants.MOD_ID)
 @Developer("TheMentor")
@@ -40,5 +43,9 @@ public class JilibsNeoForgeMain
 
         JilibsCommonMain.init();
 
+        eventBus.addListener((FMLCommonSetupEvent event) -> event.enqueueWork(() -> {
+            NeoForgeFlammableService.apply();
+            NeoForgeStrippableRegistrar.apply();
+        }));
     }
 }

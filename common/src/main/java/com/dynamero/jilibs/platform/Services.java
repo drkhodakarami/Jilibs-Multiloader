@@ -16,30 +16,39 @@
 
 package com.dynamero.jilibs.platform;
 
-import java.util.Objects;
-import java.util.ServiceLoader;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
-
-import com.mojang.brigadier.CommandDispatcher;
-
-import net.minecraft.commands.CommandSourceStack;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.LivingEntity;
-
+import com.dynamero.jilibs.client.events.LevelRenderContext;
+import com.dynamero.jilibs.client.events.RenderStage;
+import com.dynamero.jilibs.client.events.TooltipCallback;
 import com.dynamero.jilibs.contracts.annotations.*;
 import com.dynamero.jilibs.contracts.exceptions.Exceptions;
 import com.dynamero.jilibs.events.BlockBreakCallback;
 import com.dynamero.jilibs.events.LivingDamageCallback;
 import com.dynamero.jilibs.events.PlayerDimensionChangeCallback;
 import com.dynamero.jilibs.platform.services.IFakePlayerService;
+import com.dynamero.jilibs.platform.services.IFlammableService;
 import com.dynamero.jilibs.platform.services.IMenuService;
 import com.dynamero.jilibs.platform.services.IPlatformHelper;
+import com.dynamero.jilibs.platform.services.events.IClientEventService;
 import com.dynamero.jilibs.platform.services.events.IEventService;
 import com.dynamero.jilibs.platform.services.registrars.*;
+import com.mojang.brigadier.CommandDispatcher;
+import net.minecraft.client.KeyMapping;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.resources.Identifier;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.packs.resources.PreparableReloadListener;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.block.entity.BlockEntity;
+
+import java.util.Objects;
+import java.util.ServiceLoader;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 
 @SuppressWarnings({"UnnecessaryLocalVariable", "unused"})
 @Developer("TheMentor")
@@ -53,9 +62,8 @@ import com.dynamero.jilibs.platform.services.registrars.*;
 @Modrinth("https://modrinth.com/user/jiraiyah")
 public class Services
 {
+    //TODO: Datagen ?! << too complex for my taste, this can be done by mod template!
 
-    //TODO: Datagen !!
-    //TODO: Woodset
     //TODO: Reference ?!
 
     //TODO: Finish Registrars :
@@ -87,13 +95,14 @@ public class Services
 
     //TODO: Machines
 
-
     //TODO: Transfer & Pipe Network
     //TODO: Multi-Blocks
 
     public static final IPlatformHelper PLATFORM = load(IPlatformHelper.class);
     public static final IFakePlayerService FAKE_PLAYER = load(IFakePlayerService.class);
     public static final IMenuService MENU = load(IMenuService.class);
+    public static final IFlammableService FLAMMABLE = load(IFlammableService.class);
+    public static final IStrippableRegistrar STRIPPABLE = load(IStrippableRegistrar.class);
 
     public static <T> T load(Class<T> clazz)
     {

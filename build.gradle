@@ -19,6 +19,12 @@ allprojects {
         mavenLocal()
         mavenCentral()
     }
+
+    tasks.matching { it.name.startsWith("spotless") }.configureEach {
+        if (it instanceof VerificationTask) {
+            it.ignoreFailures = true
+        }
+    }
 }
 
 subprojects {

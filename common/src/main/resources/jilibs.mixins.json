@@ -3,9 +3,11 @@
   "minVersion": "0.8",
   "package": "com.dynamero.jilibs.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [],
+  "mixins": [
+    "BlockEntityTypeAccessor"
+  ],
   "client": [
-    "com.dynamero.jilibs.mixin.MixinMinecraft"
+
   ],
   "server": [],
   "injectors": {

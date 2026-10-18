@@ -19,6 +19,8 @@ package com.dynamero.jilibs;
 import net.fabricmc.api.ModInitializer;
 
 import com.dynamero.jilibs.contracts.annotations.*;
+import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
+
 @Developer("TheMentor")
 @CreatedAt("2026-10-17")
 @ModifiedAt("2026-10-18")

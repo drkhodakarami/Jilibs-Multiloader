@@ -20,6 +20,10 @@ import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLLoader;
 
 import com.dynamero.jilibs.contracts.annotations.*;
+import net.neoforged.fml.loading.FMLPaths;
+
+import java.nio.file.Path;
+
 @Developer("TheMentor")
 @CreatedAt("2026-10-18")
 @ModifiedAt("2026-10-18")
@@ -47,5 +51,11 @@ public class NeoForgePlatformHelper implements IPlatformHelper
     public boolean isDevelopmentEnvironment()
     {
         return !FMLLoader.getCurrent().isProduction();
+    }
+
+    @Override
+    public Path getConfigDirectory()
+    {
+        return FMLPaths.CONFIGDIR.get();
     }
 }

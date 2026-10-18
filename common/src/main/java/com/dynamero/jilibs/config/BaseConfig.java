@@ -26,6 +26,7 @@ import java.util.Scanner;
 
 import com.dynamero.jilibs.contracts.Logger;
 import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.platform.Services;
 
 /**
  * Provides a base configuration management system for Minecraft mods using Fabric API.
@@ -126,8 +127,7 @@ public class BaseConfig
      */
     public static ConfigRequest of(String modid, String filename)
     {
-        //TODO: Fix this maybe services?!
-        Path path = null;//FabricLoader.getInstance().getConfigDir();
+        Path path = Services.PLATFORM.getConfigDirectory();
         return new ConfigRequest(path.resolve(modid + filename + ".ini").toFile(), modid + filename);
     }
 

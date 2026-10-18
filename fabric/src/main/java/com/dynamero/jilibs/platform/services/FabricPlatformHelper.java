@@ -19,6 +19,9 @@ package com.dynamero.jilibs.platform.services;
 import net.fabricmc.loader.api.FabricLoader;
 
 import com.dynamero.jilibs.contracts.annotations.*;
+
+import java.nio.file.Path;
+
 @Developer("TheMentor")
 @CreatedAt("2026-10-17")
 @ModifiedAt("2026-10-18")
@@ -46,5 +49,11 @@ public class FabricPlatformHelper implements IPlatformHelper
     public boolean isDevelopmentEnvironment()
     {
         return FabricLoader.getInstance().isDevelopmentEnvironment();
+    }
+
+    @Override
+    public Path getConfigDirectory()
+    {
+        return FabricLoader.getInstance().getConfigDir();
     }
 }
