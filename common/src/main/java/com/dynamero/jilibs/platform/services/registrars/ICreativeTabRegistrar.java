@@ -25,7 +25,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 
 import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.platform.services.registrars.utils.CreativeTabHandle;
+import com.dynamero.jilibs.platform.services.registrars.utils.handles.CreativeTabHandle;
 import com.dynamero.jilibs.platform.services.registrars.utils.IModScopedRegistrar;
 @Developer("TheMentor")
 @CreatedAt("2026-10-18")

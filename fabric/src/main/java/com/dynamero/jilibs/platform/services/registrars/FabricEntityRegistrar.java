@@ -30,7 +30,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 
 import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.platform.services.registrars.utils.EntityHandle;
+import com.dynamero.jilibs.platform.services.registrars.utils.handles.EntityHandle;
 import com.dynamero.jilibs.utils.BaseHelper;
 @Developer("TheMentor")
 @CreatedAt("2026-10-18")

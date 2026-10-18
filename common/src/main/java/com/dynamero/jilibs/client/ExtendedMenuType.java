@@ -32,8 +32,9 @@ package com.dynamero.jilibs.client;
  * limitations under the License.
  */
 
-import java.util.Objects;
-
+import com.dynamero.jilibs.client.interfaces.ExtendedMenuProvider;
+import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.network.IntegerPayload;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.MenuProvider;
@@ -42,8 +43,8 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 
-import com.dynamero.jilibs.client.interfaces.ExtendedMenuProvider;
-import com.dynamero.jilibs.contracts.annotations.*;
+import java.util.Objects;
+
 /**
  * A {@link MenuType} for an extended menus that
  * synchronizes additional data to the client when it is opened.
@@ -140,6 +141,11 @@ public class ExtendedMenuType<T extends AbstractContainerMenu, D> extends MenuTy
         super(null, FeatureFlags.VANILLA_SET);
         this.factory = Objects.requireNonNull(factory, "menu factory cannot be null");
         this.streamCodec = Objects.requireNonNull(streamCodec, "stream codec cannot be null");
+    }
+
+    public ExtendedMenuType(int containerId, Inventory inventory, IntegerPayload enityIdPayload)
+    {
+        this(containerId, inventory, inventory.player.level().getEntity(enityIdPayload.value()));
     }
 
     /**

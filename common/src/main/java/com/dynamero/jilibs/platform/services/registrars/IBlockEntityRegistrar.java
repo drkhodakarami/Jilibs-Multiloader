@@ -18,8 +18,8 @@ package com.dynamero.jilibs.platform.services.registrars;
 
 import com.dynamero.jilibs.contracts.annotations.*;
 import com.dynamero.jilibs.platform.services.registrars.utils.BlockEntityFactory;
-import com.dynamero.jilibs.platform.services.registrars.utils.BlockEntityHandle;
-import com.dynamero.jilibs.platform.services.registrars.utils.BlockHandle;
+import com.dynamero.jilibs.platform.services.registrars.utils.handles.BlockEntityHandle;
+import com.dynamero.jilibs.platform.services.registrars.utils.handles.BlockHandle;
 import com.dynamero.jilibs.platform.services.registrars.utils.IModScopedRegistrar;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.Block;

@@ -23,9 +23,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 
 import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.platform.services.registrars.utils.AttributeEntry;
+import com.dynamero.jilibs.contracts.records.AttributeEntry;
 import com.dynamero.jilibs.platform.services.registrars.utils.IModScopedRegistrar;
-
 @Developer("TheMentor")
 @CreatedAt("2026-10-18")
 @ModifiedAt("2026-10-18")

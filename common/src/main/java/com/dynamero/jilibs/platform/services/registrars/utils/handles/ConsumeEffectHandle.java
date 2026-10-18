@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.dynamero.jilibs.platform.services.registrars.utils;
+package com.dynamero.jilibs.platform.services.registrars.utils.handles;
 
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.item.consume_effects.ConsumeEffect;
 
 import com.dynamero.jilibs.contracts.annotations.*;
 @Developer("TheMentor")
@@ -28,4 +28,4 @@ import com.dynamero.jilibs.contracts.annotations.*;
 @Discord("https://discord.gg/pmM4emCbuH")
 @Youtube("https://www.youtube.com/@TheMentorCodeLab")
 @Modrinth("https://modrinth.com/user/jiraiyah")
-public interface BlockHandle<T extends Block> extends RegistryHandle<T, Block>{}
+public interface ConsumeEffectHandle<T extends ConsumeEffect.Type<?>> extends RegistryHandle<T, ConsumeEffect.Type<?>>{}

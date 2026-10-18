@@ -24,7 +24,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import net.minecraft.client.Minecraft;
 
 import com.dynamero.jilibs.contracts.annotations.*;
-
 @Mixin(Minecraft.class)
 @Developer("TheMentor")
 @CreatedAt("2026-10-17")

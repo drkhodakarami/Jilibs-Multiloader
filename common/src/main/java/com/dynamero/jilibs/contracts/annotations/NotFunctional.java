@@ -21,6 +21,7 @@ import static java.lang.annotation.ElementType.*;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Target;
 
+import com.dynamero.jilibs.contracts.annotations.*;
 /**
  * Annotation to mark a class, method, field, or constructor as not functional.
  *

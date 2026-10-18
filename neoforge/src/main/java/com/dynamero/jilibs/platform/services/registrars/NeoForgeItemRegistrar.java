@@ -32,9 +32,8 @@ import net.minecraft.world.item.ToolMaterial;
 import com.dynamero.jilibs.contracts.annotations.*;
 import com.dynamero.jilibs.interfaces.factories.IToolFactory;
 import com.dynamero.jilibs.platform.services.registrars.utils.INeoForgeRegistrar;
-import com.dynamero.jilibs.platform.services.registrars.utils.ItemHandle;
+import com.dynamero.jilibs.platform.services.registrars.utils.handles.ItemHandle;
 import com.dynamero.jilibs.utils.BaseHelper;
-
 @Developer("TheMentor")
 @CreatedAt("2026-10-18")
 @ModifiedAt("2026-10-18")

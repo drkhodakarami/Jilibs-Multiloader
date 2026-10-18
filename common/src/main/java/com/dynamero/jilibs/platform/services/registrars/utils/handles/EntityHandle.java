@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.dynamero.jilibs.platform.services.registrars.utils;
+package com.dynamero.jilibs.platform.services.registrars.utils.handles;
 
 import net.minecraft.world.entity.EntityType;
 

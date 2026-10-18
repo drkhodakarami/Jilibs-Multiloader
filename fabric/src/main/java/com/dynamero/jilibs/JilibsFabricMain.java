@@ -19,7 +19,6 @@ package com.dynamero.jilibs;
 import net.fabricmc.api.ModInitializer;
 
 import com.dynamero.jilibs.contracts.annotations.*;
-
 @Developer("TheMentor")
 @CreatedAt("2026-10-17")
 @ModifiedAt("2026-10-18")

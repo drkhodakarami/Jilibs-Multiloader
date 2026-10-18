@@ -14,12 +14,9 @@
  * limitations under the License.
  */
 
-package com.dynamero.jilibs.platform.services;
+package com.dynamero.jilibs.platform.services.registrars.utils.handles;
 
-import org.jspecify.annotations.Nullable;
-
-import net.minecraft.world.MenuProvider;
-import net.minecraft.world.entity.Entity;
+import net.minecraft.world.item.Item;
 
 import com.dynamero.jilibs.contracts.annotations.*;
 @Developer("TheMentor")
@@ -31,7 +28,4 @@ import com.dynamero.jilibs.contracts.annotations.*;
 @Discord("https://discord.gg/pmM4emCbuH")
 @Youtube("https://www.youtube.com/@TheMentorCodeLab")
 @Modrinth("https://modrinth.com/user/jiraiyah")
-public interface IMenuOpener
-{
-    @Nullable <T extends Entity> MenuProvider createMenuProvider(T entity, int entityId);
-}
+public interface ItemHandle<T extends Item> extends RegistryHandle<T, Item>{}

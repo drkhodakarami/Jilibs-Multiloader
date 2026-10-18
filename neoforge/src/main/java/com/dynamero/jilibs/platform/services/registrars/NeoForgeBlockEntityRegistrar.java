@@ -1,8 +1,8 @@
 package com.dynamero.jilibs.platform.services.registrars;
 
 import com.dynamero.jilibs.platform.services.registrars.utils.BlockEntityFactory;
-import com.dynamero.jilibs.platform.services.registrars.utils.BlockEntityHandle;
-import com.dynamero.jilibs.platform.services.registrars.utils.BlockHandle;
+import com.dynamero.jilibs.platform.services.registrars.utils.handles.BlockEntityHandle;
+import com.dynamero.jilibs.platform.services.registrars.utils.handles.BlockHandle;
 import com.dynamero.jilibs.platform.services.registrars.utils.INeoForgeRegistrar;
 import com.dynamero.jilibs.utils.BaseHelper;
 import net.minecraft.core.Holder;
@@ -19,6 +19,16 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Supplier;
 
+import com.dynamero.jilibs.contracts.annotations.*;
+@Developer("TheMentor")
+@CreatedAt("2026-10-18")
+@ModifiedAt("2026-10-18")
+@ModifiedBy("TheMentor")
+@Website("https://dynamero.com")
+@Repository("https://github.com/drkhodakarami/")
+@Discord("https://discord.gg/pmM4emCbuH")
+@Youtube("https://www.youtube.com/@TheMentorCodeLab")
+@Modrinth("https://modrinth.com/user/jiraiyah")
 public class NeoForgeBlockEntityRegistrar implements IBlockEntityRegistrar, INeoForgeRegistrar
 {
     private final String modId;

@@ -14,16 +14,11 @@
  * limitations under the License.
  */
 
-package com.dynamero.jilibs.platform.services.registrars.utils;
-
-import java.util.function.Supplier;
-
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+package com.dynamero.jilibs.platform.services.registrars.utils.handles;
 
 import com.dynamero.jilibs.contracts.annotations.*;
-import com.dynamero.jilibs.platform.services.registrars.IEntityAttributeRegistrar;
+import net.minecraft.world.inventory.MenuType;
+
 @Developer("TheMentor")
 @CreatedAt("2026-10-18")
 @ModifiedAt("2026-10-18")
@@ -33,10 +28,4 @@ import com.dynamero.jilibs.platform.services.registrars.IEntityAttributeRegistra
 @Discord("https://discord.gg/pmM4emCbuH")
 @Youtube("https://www.youtube.com/@TheMentorCodeLab")
 @Modrinth("https://modrinth.com/user/jiraiyah")
-public record AttributeEntry<T extends LivingEntity>(Supplier<EntityType<T>> entityTypeSupplier, Supplier<AttributeSupplier.Builder> builderSupplier)
-{
-    public void register(IEntityAttributeRegistrar.EntityAttributeRegistrar registrar)
-    {
-        registrar.register(this.entityTypeSupplier.get(), this.builderSupplier.get());
-    }
-}
+public interface MenuTypeHandle<T extends MenuType<?>> extends RegistryHandle<T, MenuType<?>>{}

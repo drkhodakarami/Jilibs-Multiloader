@@ -29,7 +29,7 @@ import net.minecraft.world.item.equipment.ArmorType;
 import com.dynamero.jilibs.contracts.annotations.*;
 import com.dynamero.jilibs.interfaces.factories.IToolFactory;
 import com.dynamero.jilibs.platform.services.registrars.utils.IModScopedRegistrar;
-import com.dynamero.jilibs.platform.services.registrars.utils.ItemHandle;
+import com.dynamero.jilibs.platform.services.registrars.utils.handles.ItemHandle;
 import com.dynamero.jilibs.utils.BaseHelper;
 
 /**

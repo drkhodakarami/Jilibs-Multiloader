@@ -14,11 +14,16 @@
  * limitations under the License.
  */
 
-package com.dynamero.jilibs.platform.services.registrars.utils;
+package com.dynamero.jilibs.contracts.records;
 
-import net.minecraft.world.item.Item;
+import java.util.function.Supplier;
+
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 
 import com.dynamero.jilibs.contracts.annotations.*;
+import com.dynamero.jilibs.platform.services.registrars.IEntityAttributeRegistrar;
 @Developer("TheMentor")
 @CreatedAt("2026-10-18")
 @ModifiedAt("2026-10-18")
@@ -28,4 +33,10 @@ import com.dynamero.jilibs.contracts.annotations.*;
 @Discord("https://discord.gg/pmM4emCbuH")
 @Youtube("https://www.youtube.com/@TheMentorCodeLab")
 @Modrinth("https://modrinth.com/user/jiraiyah")
-public interface ItemHandle<T extends Item> extends RegistryHandle<T, Item>{}
+public record AttributeEntry<T extends LivingEntity>(Supplier<EntityType<T>> entityTypeSupplier, Supplier<AttributeSupplier.Builder> builderSupplier)
+{
+    public void register(IEntityAttributeRegistrar.EntityAttributeRegistrar registrar)
+    {
+        registrar.register(this.entityTypeSupplier.get(), this.builderSupplier.get());
+    }
+}

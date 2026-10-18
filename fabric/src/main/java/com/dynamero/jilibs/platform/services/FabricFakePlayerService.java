@@ -23,7 +23,6 @@ import net.minecraft.server.level.ServerPlayer;
 
 import com.dynamero.jilibs.contracts.annotations.*;
 import com.dynamero.jilibs.player.UsefulFakePlayer;
-
 @Developer("TheMentor")
 @CreatedAt("2026-10-18")
 @ModifiedAt("2026-10-18")

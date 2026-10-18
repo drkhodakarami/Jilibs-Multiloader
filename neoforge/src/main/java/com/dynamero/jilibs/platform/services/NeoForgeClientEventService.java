@@ -45,6 +45,16 @@ import com.dynamero.jilibs.client.events.RenderStage;
 import com.dynamero.jilibs.client.events.TooltipCallback;
 import com.dynamero.jilibs.platform.services.events.IClientEventService;
 
+import com.dynamero.jilibs.contracts.annotations.*;
+@Developer("TheMentor")
+@CreatedAt("2026-10-18")
+@ModifiedAt("2026-10-18")
+@ModifiedBy("TheMentor")
+@Website("https://dynamero.com")
+@Repository("https://github.com/drkhodakarami/")
+@Discord("https://discord.gg/pmM4emCbuH")
+@Youtube("https://www.youtube.com/@TheMentorCodeLab")
+@Modrinth("https://modrinth.com/user/jiraiyah")
 public final class NeoForgeClientEventService implements IClientEventService
 {
     private static IEventBus modBus;

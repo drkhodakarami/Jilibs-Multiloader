@@ -24,7 +24,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import net.minecraft.client.gui.screens.TitleScreen;
 
 import com.dynamero.jilibs.contracts.annotations.*;
-
 @Mixin(TitleScreen.class)
 @Developer("TheMentor")
 @CreatedAt("2026-10-17")

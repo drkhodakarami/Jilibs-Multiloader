@@ -14,10 +14,9 @@
  * limitations under the License.
  */
 
-package com.dynamero.jilibs.platform.services.registrars.utils;
+package com.dynamero.jilibs.platform.services.registrars.utils.handles;
 
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.item.CreativeModeTab;
 
 import com.dynamero.jilibs.contracts.annotations.*;
 @Developer("TheMentor")
@@ -29,5 +28,4 @@ import com.dynamero.jilibs.contracts.annotations.*;
 @Discord("https://discord.gg/pmM4emCbuH")
 @Youtube("https://www.youtube.com/@TheMentorCodeLab")
 @Modrinth("https://modrinth.com/user/jiraiyah")
-public record ModBlock<B extends Block, I extends BlockItem>(BlockHandle<B> block, ItemHandle<I> item)
-{}
+public interface CreativeTabHandle<T extends CreativeModeTab> extends RegistryHandle<T, CreativeModeTab>{}

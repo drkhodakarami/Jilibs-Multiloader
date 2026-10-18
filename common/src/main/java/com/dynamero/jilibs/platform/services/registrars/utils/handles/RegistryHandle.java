@@ -14,13 +14,16 @@
  * limitations under the License.
  */
 
-package com.dynamero.jilibs.platform.services.registrars.utils;
+package com.dynamero.jilibs.platform.services.registrars.utils.handles;
 
-import net.minecraft.world.item.CreativeModeTab;
+import java.util.function.Supplier;
+
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 
 import com.dynamero.jilibs.contracts.annotations.*;
 @Developer("TheMentor")
-@CreatedAt("2026-10-18")
+@CreatedAt("2026-10-16")
 @ModifiedAt("2026-10-18")
 @ModifiedBy("TheMentor")
 @Website("https://dynamero.com")
@@ -28,4 +31,8 @@ import com.dynamero.jilibs.contracts.annotations.*;
 @Discord("https://discord.gg/pmM4emCbuH")
 @Youtube("https://www.youtube.com/@TheMentorCodeLab")
 @Modrinth("https://modrinth.com/user/jiraiyah")
-public interface CreativeTabHandle<T extends CreativeModeTab> extends RegistryHandle<T, CreativeModeTab>{}
+public interface RegistryHandle<T extends R, R> extends Supplier<T>
+{
+    Identifier id();
+    ResourceKey<R> key();
+}

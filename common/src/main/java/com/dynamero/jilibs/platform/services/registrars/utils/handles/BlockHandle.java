@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.dynamero.jilibs.platform.services.registrars.utils;
+package com.dynamero.jilibs.platform.services.registrars.utils.handles;
+
+import net.minecraft.world.level.block.Block;
 
 import com.dynamero.jilibs.contracts.annotations.*;
-import net.minecraft.world.level.block.entity.BlockEntityType;
-
 @Developer("TheMentor")
 @CreatedAt("2026-10-18")
 @ModifiedAt("2026-10-18")
@@ -28,4 +28,4 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 @Discord("https://discord.gg/pmM4emCbuH")
 @Youtube("https://www.youtube.com/@TheMentorCodeLab")
 @Modrinth("https://modrinth.com/user/jiraiyah")
-public interface BlockEntityHandle<T extends BlockEntityType<?>> extends RegistryHandle<T, BlockEntityType<?>>{}
+public interface BlockHandle<T extends Block> extends RegistryHandle<T, Block>{}
